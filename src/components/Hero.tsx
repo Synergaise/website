@@ -43,11 +43,11 @@ const Hero = () => {
               See Our Work
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Link to="/contact">
+            <a href="https://cal.com/jude-hill-a6kiig/discovery" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="lg" className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300">
-                Contact Us
+                Schedule a Call
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

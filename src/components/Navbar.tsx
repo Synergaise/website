@@ -54,14 +54,14 @@ const Navbar = () => {
 
           {/* Contact Button */}
           <div className="hidden md:block shrink-0">
-            <Link to="/contact">
+            <a href="https://cal.com/jude-hill-a6kiig/discovery" target="_blank" rel="noopener noreferrer">
               <Button
                 size="sm"
                 className="rounded-full font-heading font-bold uppercase text-xs tracking-[0.04em] px-6"
               >
-                Contact Us
+                Schedule a Call
               </Button>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,14 +103,14 @@ const Navbar = () => {
               >
                 Mission & Values
               </Link>
-              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+              <a href="https://cal.com/jude-hill-a6kiig/discovery" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
                 <Button
                   size="sm"
                   className="w-full rounded-full font-heading font-bold uppercase text-xs tracking-[0.04em]"
                 >
-                  Contact Us
+                  Schedule a Call
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         )}
