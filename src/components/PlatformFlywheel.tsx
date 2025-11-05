@@ -13,32 +13,32 @@ const platforms = [
 
 const PlatformFlywheel = () => {
   return (
-    <section className="py-20 border-y border-border">
+    <section className="my-24">
       <div className="container mx-auto px-6">
-        <p className="text-center text-sm font-accent text-muted-foreground mb-8 uppercase tracking-wider">
+        <p className="text-center font-heading font-bold text-base uppercase tracking-[0.12em] text-cool-gray mb-12">
           Powered by leading automation platforms
         </p>
         
-        {/* Scrolling Platform Logos */}
+        {/* Scrolling Platform Carousel */}
         <div className="relative overflow-hidden">
-          <div className="flex gap-12 animate-slide-in">
+          <div className="flex gap-4 animate-scroll hover:pause-animation">
             {platforms.map((platform, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 px-6 py-3 bg-gradient-card backdrop-blur-sm border border-border rounded-lg"
+                className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full"
               >
-                <span className="text-base font-accent text-foreground whitespace-nowrap">
+                <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
                   {platform}
                 </span>
               </div>
             ))}
-            {/* Duplicate for seamless loop effect */}
+            {/* Duplicate for seamless infinite loop */}
             {platforms.map((platform, index) => (
               <div
                 key={`duplicate-${index}`}
-                className="flex-shrink-0 px-6 py-3 bg-gradient-card backdrop-blur-sm border border-border rounded-lg"
+                className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full"
               >
-                <span className="text-base font-accent text-foreground whitespace-nowrap">
+                <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
                   {platform}
                 </span>
               </div>

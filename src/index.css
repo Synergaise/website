@@ -101,9 +101,21 @@ All colors MUST be HSL.
   }
   
   /* Smooth scroll behavior */
-  html {
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Pause animation on hover */
+.hover\:pause-animation:hover {
+  animation-play-state: paused;
+}
+
+/* Responsive scroll animation speed */
+@media (max-width: 768px) {
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
   }
+}
   
   /* Custom scrollbar */
   ::-webkit-scrollbar {

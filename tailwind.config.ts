@@ -100,14 +100,12 @@ export default {
             transform: "translateY(0)",
           },
         },
-        "slide-in": {
+        "scroll": {
           "0%": {
-            transform: "translateX(-100%)",
-            opacity: "0",
+            transform: "translateX(0)",
           },
           "100%": {
-            transform: "translateX(0)",
-            opacity: "1",
+            transform: "translateX(-50%)",
           },
         },
       },
@@ -115,7 +113,7 @@ export default {
         "orbital-glow": "orbital-glow 8s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out",
-        "slide-in": "slide-in 0.8s ease-out",
+        "scroll": "scroll 25s linear infinite",
       },
     },
   },
