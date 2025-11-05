@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import NetworkEffect from "./NetworkEffect";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -14,15 +15,14 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#0E0E0E] to-black">
-      {/* Right Side: Animated Background */}
-      <div className="absolute right-0 top-0 bottom-0 w-[60%] overflow-hidden">
-        {/* Orbital Glow Animations */}
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] animate-orbital-glow" />
-        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] bg-primary/20 rounded-full blur-[100px] animate-orbital-glow" 
+      {/* Right Side: Animated Network Background */}
+      <NetworkEffect />
+      
+      {/* Additional ambient glow */}
+      <div className="absolute right-0 top-0 bottom-0 w-[60%] overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] animate-orbital-glow" />
+        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] bg-primary/15 rounded-full blur-[100px] animate-orbital-glow" 
           style={{ animationDelay: "2s" }} 
-        />
-        <div className="absolute top-1/2 right-1/2 w-[300px] h-[300px] bg-primary/15 rounded-full blur-[90px] animate-orbital-glow" 
-          style={{ animationDelay: "4s" }} 
         />
         
         {/* Gradient Overlay for Depth */}
