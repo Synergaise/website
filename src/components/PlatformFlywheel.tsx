@@ -12,7 +12,7 @@ const PlatformFlywheel = () => {
             {platforms.map((platform, index) => 
               platform === "Clay" ? (
                 <div key={index} className="flex-shrink-0 flex items-center">
-                  <img src={clayLogo} alt="Clay" className="h-5 w-auto" />
+                  <img src={clayLogo} alt="Clay" className="h-8 w-auto" />
                 </div>
               ) : (
                 <div key={index} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
@@ -26,7 +26,7 @@ const PlatformFlywheel = () => {
             {platforms.map((platform, index) => 
               platform === "Clay" ? (
                 <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center">
-                  <img src={clayLogo} alt="Clay" className="h-5 w-auto" />
+                  <img src={clayLogo} alt="Clay" className="h-8 w-auto" />
                 </div>
               ) : (
                 <div key={`duplicate-${index}`} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
