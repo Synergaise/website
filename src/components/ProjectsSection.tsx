@@ -2,16 +2,10 @@ import { useState, useEffect } from "react";
 
 const testimonials = [
   {
-    quote: "I cannot say enough good things about working with Synergaise. I needed complex automations done fast — and they didn't stop until every single detail was perfect. They're incredibly responsive, fully committed, and the level of dedication, talent, and professionalism is next-level. If you get the chance to work with them, do it — a rare find, ten stars if I could give them!",
-    author: "Moe",
-    role: "Founder",
-    company: "Godly Windows"
-  },
-  {
-    quote: "They implemented a whole new process that made everything feel next-gen, not like the 90s. Working with professionals at Synergaise has been a true privilege — top-notch quality yet again.",
-    author: "Tushar Srivastava",
-    role: "Founder",
-    company: "Fetch N Buy"
+    quote: "Working with Synergaise Ltd has been a genuinely transformative experience for our business. They built a bespoke automation that now checks expiry dates automatically, sends renewal reminders, and even optimises technician travel routes. The results have been outstanding: reduced admin time, increased field efficiency, and improved profitability. I would highly recommend them to any business looking to enhance productivity, reduce overhead, and unlock the power of smart automation.",
+    author: "Miles Leslie",
+    role: "Managing Director",
+    company: "ELC Sales & Lettings"
   },
   {
     quote: "Working with Synergaise was a genuinely strong experience — collaborative throughout and with a great final result. They helped streamline and automate several overlapping manual tasks, making our internal process more efficient and user-friendly. Communication was slick and responsive, and I'd absolutely recommend them — knowledgeable, easy to work with, and strong on delivery.",
@@ -26,10 +20,16 @@ const testimonials = [
     company: "The British Association for Psychological Type (BAPT)"
   },
   {
-    quote: "Working with Synergaise Ltd has been a genuinely transformative experience for our business. They built a bespoke automation that now checks expiry dates automatically, sends renewal reminders, and even optimises technician travel routes. The results have been outstanding: reduced admin time, increased field efficiency, and improved profitability. I would highly recommend them to any business looking to enhance productivity, reduce overhead, and unlock the power of smart automation.",
-    author: "Miles Leslie",
-    role: "Managing Director",
-    company: "ELC Sales & Lettings"
+    quote: "I cannot say enough good things about working with Synergaise. I needed complex automations done fast — and they didn't stop until every single detail was perfect. They're incredibly responsive, fully committed, and the level of dedication, talent, and professionalism is next-level. If you get the chance to work with them, do it — a rare find, ten stars if I could give them!",
+    author: "Moe",
+    role: "Founder",
+    company: "Godly Windows"
+  },
+  {
+    quote: "They implemented a whole new process that made everything feel next-gen, not like the 90s. Working with professionals at Synergaise has been a true privilege — top-notch quality yet again.",
+    author: "Tushar Srivastava",
+    role: "Founder",
+    company: "Fetch N Buy"
   }
 ];
 
@@ -102,14 +102,14 @@ const ProjectsSection = () => {
         </div>
 
         <div 
-          className="relative h-[600px] md:h-[700px] w-full max-w-4xl mx-auto"
+          className="relative h-[600px] md:h-[700px] w-full max-w-5xl mx-auto flex items-center justify-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ease-out w-full max-w-md"
+              className="absolute transition-all duration-1000 ease-out w-full max-w-md"
               style={getCardStyle(index)}
             >
               <div className="p-8 bg-gradient-to-b from-[#111111] to-[#0E0E0E] border border-border rounded-[18px] shadow-lg hover:shadow-glow-card space-y-6 backdrop-blur-sm">
