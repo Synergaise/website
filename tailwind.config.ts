@@ -14,9 +14,16 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Outfit', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        heading: ['Satoshi', 'sans-serif'],
+        body: ['Satoshi', 'sans-serif'],
         accent: ['Space Grotesk', 'sans-serif'],
+      },
+      fontSize: {
+        'h1': ['96px', { lineHeight: '1.05', letterSpacing: '-0.03em', fontWeight: '900' }],
+        'h2': ['48px', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '900' }],
+        'h3': ['28px', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '900' }],
+        'body': ['18px', { lineHeight: '1.6', letterSpacing: '0em', fontWeight: '400' }],
+        'button': ['16px', { lineHeight: '1', letterSpacing: '0.04em', fontWeight: '700' }],
       },
       colors: {
         border: "hsl(var(--border))",
