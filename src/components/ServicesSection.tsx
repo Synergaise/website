@@ -1,21 +1,24 @@
 import { Button } from "@/components/ui/button";
-import { Brain, Workflow, GraduationCap, ArrowRight } from "lucide-react";
+import { Brain, Network, GraduationCap, ArrowRight } from "lucide-react";
 
 const services = [
   {
     icon: Brain,
     title: "AI Strategy Consulting",
-    description: "Align automation with business models. We help you identify the right opportunities and build a roadmap to AI transformation.",
+    description: "Align automation with business models. We help you identify the right opportunities and build a roadmap to intelligent transformation.",
+    animation: "animate-pulse",
   },
   {
-    icon: Workflow,
+    icon: Network,
     title: "Tailored AI Workflows",
-    description: "Design, deploy, and integrate scalable systems. Custom-built automation that fits your unique business processes.",
+    description: "Design, deploy, and integrate scalable systems — automation built precisely around your operations.",
+    animation: "hover:animate-pulse",
   },
   {
     icon: GraduationCap,
     title: "Education & Enablement",
-    description: "Upskill teams to leverage AI confidently. Comprehensive training programs that empower your organization.",
+    description: "Upskill teams to leverage AI confidently. Hands-on training that empowers your people to innovate.",
+    animation: "hover:animate-pulse",
   },
 ];
 
@@ -43,10 +46,13 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group p-8 bg-gradient-card backdrop-blur-sm border border-border rounded-lg hover:border-primary transition-all duration-300 hover:shadow-glow-card"
+              className="group p-10 bg-gradient-to-br from-card/50 to-background border border-border/50 rounded-[18px] hover:border-primary/50 transition-all duration-[400ms] hover:scale-[1.03] hover:shadow-[0_6px_40px_rgba(41,121,255,0.25)] animate-fade-in"
+              style={{
+                animationDelay: `${index * 150}ms`,
+              }}
             >
               <div className="mb-6">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <div className={`w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 ${service.animation}`}>
                   <service.icon className="w-7 h-7 text-primary" />
                 </div>
               </div>
@@ -60,12 +66,12 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center mt-12">
           <Button
             onClick={scrollToReviews}
             variant="outline"
             size="lg"
-            className="font-heading font-bold uppercase text-sm tracking-wider px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            className="font-heading font-bold text-sm tracking-wider px-8 py-6 rounded-[10px] border-2 border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300"
           >
             See Client Reviews
             <ArrowRight className="ml-2 h-4 w-4" />
