@@ -1,12 +1,4 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { useRef } from "react";
+import { useState, useEffect } from "react";
 
 const testimonials = [
   {
@@ -42,12 +34,62 @@ const testimonials = [
 ];
 
 const ProjectsSection = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 6500, stopOnInteraction: true })
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 6500);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  const getCardStyle = (index: number) => {
+    const total = testimonials.length;
+    const diff = (index - activeIndex + total) % total;
+    
+    // Calculate position in a wheel
+    const angle = (diff * 360) / total;
+    const radius = 280;
+    
+    // Calculate x and y positions for circular arrangement
+    const x = Math.sin((angle * Math.PI) / 180) * radius;
+    const y = -Math.cos((angle * Math.PI) / 180) * radius / 2;
+    
+    // Scale and opacity based on position
+    let scale = 1;
+    let opacity = 1;
+    let zIndex = 10;
+    
+    if (diff === 0) {
+      // Active card - center front
+      scale = 1.1;
+      opacity = 1;
+      zIndex = 30;
+    } else if (diff === 1 || diff === total - 1) {
+      // Adjacent cards
+      scale = 0.85;
+      opacity = 0.6;
+      zIndex = 20;
+    } else {
+      // Background cards
+      scale = 0.7;
+      opacity = 0.3;
+      zIndex = 10;
+    }
+
+    return {
+      transform: `translate(${x}px, ${y}px) scale(${scale})`,
+      opacity,
+      zIndex,
+    };
+  };
 
   return (
-    <section id="reviews" className="py-32 relative">
+    <section id="reviews" className="py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-graphite/10 to-transparent" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
@@ -59,42 +101,52 @@ const ProjectsSection = () => {
           </p>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[plugin.current]}
-          className="w-full"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
+        <div 
+          className="relative h-[600px] md:h-[700px] w-full max-w-4xl mx-auto"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
-          <CarouselContent className="-ml-6">
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="pl-6 md:basis-1/2 lg:basis-1/3">
-                <div className="p-8 bg-gradient-to-b from-[#111111] to-[#0E0E0E] border border-border rounded-[18px] shadow-lg hover:scale-[1.03] hover:shadow-glow-card transition-all duration-[350ms] ease-out space-y-6 h-full">
-                  <div className="text-4xl text-primary leading-none">"</div>
-                  <blockquote className="text-base text-foreground leading-relaxed">
-                    {testimonial.quote}
-                  </blockquote>
-                  <div className="space-y-1 pt-4">
-                    <p className="text-sm font-accent font-semibold text-foreground">
-                      {testimonial.author}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.role}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.company}
-                    </p>
-                  </div>
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ease-out w-full max-w-md"
+              style={getCardStyle(index)}
+            >
+              <div className="p-8 bg-gradient-to-b from-[#111111] to-[#0E0E0E] border border-border rounded-[18px] shadow-lg hover:shadow-glow-card space-y-6 backdrop-blur-sm">
+                <div className="text-4xl text-primary leading-none">"</div>
+                <blockquote className="text-base text-foreground leading-relaxed line-clamp-6">
+                  {testimonial.quote}
+                </blockquote>
+                <div className="space-y-1 pt-4">
+                  <p className="text-sm font-accent font-semibold text-foreground">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.role}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.company}
+                  </p>
                 </div>
-              </CarouselItem>
+              </div>
+            </div>
+          ))}
+          
+          {/* Navigation dots */}
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex gap-2 z-40">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === activeIndex 
+                    ? "bg-primary w-8" 
+                    : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                }`}
+              />
             ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:flex -left-12" />
-          <CarouselNext className="hidden md:flex -right-12" />
-        </Carousel>
+          </div>
+        </div>
       </div>
     </section>
   );
