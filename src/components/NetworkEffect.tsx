@@ -10,8 +10,8 @@ function NetworkParticles() {
   const [mouse] = useState(() => new THREE.Vector2());
   const { viewport } = useThree();
 
-  // Generate random particle positions
-  const particleCount = 150;
+  // Generate random particle positions with lower density
+  const particleCount = 80;
   const particles = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     const velocities: number[] = [];
@@ -22,9 +22,9 @@ function NetworkParticles() {
       positions[i * 3 + 2] = (Math.random() - 0.5) * 4;
       
       velocities.push(
-        (Math.random() - 0.5) * 0.01,
-        (Math.random() - 0.5) * 0.01,
-        (Math.random() - 0.5) * 0.01
+        (Math.random() - 0.5) * 0.008,
+        (Math.random() - 0.5) * 0.008,
+        (Math.random() - 0.5) * 0.008
       );
     }
     
@@ -47,15 +47,16 @@ function NetworkParticles() {
 
     const positions = ref.current.geometry.attributes.position.array as Float32Array;
     const linePositions: number[] = [];
+    const time = state.clock.elapsedTime;
 
-    // Mouse influence
+    // Mouse influence with gentler interaction
     const mouseInfluence = new THREE.Vector3(
       mouse.x * viewport.width / 2,
       mouse.y * viewport.height / 2,
       0
     );
 
-    // Update particle positions
+    // Update particle positions with organic movement
     for (let i = 0; i < particleCount; i++) {
       // Calculate distance to mouse
       const particlePos = new THREE.Vector3(
@@ -65,19 +66,22 @@ function NetworkParticles() {
       );
       
       const distance = particlePos.distanceTo(mouseInfluence);
-      const maxDistance = 3;
+      const maxDistance = 2.5;
       
-      // Apply mouse repulsion
+      // Apply gentle mouse attraction (not repulsion)
       if (distance < maxDistance) {
-        const force = (1 - distance / maxDistance) * 0.05;
-        const direction = particlePos.clone().sub(mouseInfluence).normalize();
+        const force = (1 - distance / maxDistance) * 0.02;
+        const direction = mouseInfluence.clone().sub(particlePos).normalize();
         positions[i * 3] += direction.x * force;
         positions[i * 3 + 1] += direction.y * force;
       }
 
-      // Regular movement
-      positions[i * 3] += particles.velocities[i * 3];
-      positions[i * 3 + 1] += particles.velocities[i * 3 + 1];
+      // Organic flowing movement with sine waves
+      const flowX = Math.sin(time * 0.3 + i * 0.1) * 0.002;
+      const flowY = Math.cos(time * 0.25 + i * 0.15) * 0.002;
+      
+      positions[i * 3] += particles.velocities[i * 3] + flowX;
+      positions[i * 3 + 1] += particles.velocities[i * 3 + 1] + flowY;
       positions[i * 3 + 2] += particles.velocities[i * 3 + 2];
 
       // Boundary check and bounce
@@ -86,7 +90,7 @@ function NetworkParticles() {
       if (Math.abs(positions[i * 3 + 2]) > 2) particles.velocities[i * 3 + 2] *= -1;
     }
 
-    // Create connections between nearby particles
+    // Create connections between nearby particles with distance-based opacity
     for (let i = 0; i < particleCount; i++) {
       for (let j = i + 1; j < particleCount; j++) {
         const dx = positions[i * 3] - positions[j * 3];
@@ -94,7 +98,7 @@ function NetworkParticles() {
         const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
         const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-        if (distance < 2.2) {
+        if (distance < 1.8) {
           linePositions.push(
             positions[i * 3],
             positions[i * 3 + 1],
@@ -114,9 +118,15 @@ function NetworkParticles() {
     lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
     lineRef.current.geometry = lineGeometry;
 
-    // Slow rotation
-    ref.current.rotation.y = state.clock.elapsedTime * 0.05;
-    lineRef.current.rotation.y = state.clock.elapsedTime * 0.05;
+    // Gentle pulsing opacity
+    const pulseOpacity = 0.5 + Math.sin(time * 0.5) * 0.2;
+    if (lineRef.current.material) {
+      (lineRef.current.material as THREE.LineBasicMaterial).opacity = pulseOpacity;
+    }
+
+    // Very slow organic rotation
+    ref.current.rotation.y = time * 0.03;
+    lineRef.current.rotation.y = time * 0.03;
   });
 
   return (
@@ -124,16 +134,16 @@ function NetworkParticles() {
       <Points ref={ref} positions={particles.positions} stride={3}>
         <PointMaterial
           transparent
-          color="#4A9EFF"
-          size={0.15}
+          color="#5BA3FF"
+          size={0.12}
           sizeAttenuation={true}
           depthWrite={false}
-          opacity={1}
+          opacity={0.9}
           blending={THREE.AdditiveBlending}
         />
       </Points>
       <lineSegments ref={lineRef}>
-        <lineBasicMaterial color="#4A9EFF" transparent opacity={0.8} />
+        <lineBasicMaterial color="#5BA3FF" transparent opacity={0.6} />
       </lineSegments>
     </>
   );
@@ -147,10 +157,10 @@ export default function NetworkEffect() {
         <NetworkParticles />
         <EffectComposer>
           <Bloom 
-            intensity={3.5} 
-            luminanceThreshold={0.1} 
+            intensity={2.0} 
+            luminanceThreshold={0.15} 
             luminanceSmoothing={0.9}
-            radius={1.5}
+            radius={1.0}
           />
         </EffectComposer>
       </Canvas>
