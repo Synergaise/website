@@ -11,9 +11,9 @@ const platformLogos: Record<string, { src: string; height: string }> = {
   "Make": { src: makeLogo, height: "h-8" },
   "Clay": { src: clayLogo, height: "h-12" },
   "n8n": { src: n8nLogo, height: "h-10" },
-  "Claude": { src: claudeLogo, height: "h-14" },
+  "Claude": { src: claudeLogo, height: "h-16" },
   "Cursor": { src: cursorLogo, height: "h-8" },
-  "Lovable": { src: lovableLogo, height: "h-10" },
+  "Lovable": { src: lovableLogo, height: "h-12" },
   "OpenAI": { src: openaiLogo, height: "h-8" },
   "Supabase": { src: supabaseLogo, height: "h-8" },
 };
