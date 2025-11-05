@@ -124,8 +124,8 @@ function NetworkParticles() {
       <Points ref={ref} positions={particles.positions} stride={3}>
         <PointMaterial
           transparent
-          color="#2979FF"
-          size={0.12}
+          color="#4A9EFF"
+          size={0.15}
           sizeAttenuation={true}
           depthWrite={false}
           opacity={1}
@@ -133,7 +133,7 @@ function NetworkParticles() {
         />
       </Points>
       <lineSegments ref={lineRef}>
-        <lineBasicMaterial color="#2979FF" transparent opacity={0.6} />
+        <lineBasicMaterial color="#4A9EFF" transparent opacity={0.8} />
       </lineSegments>
     </>
   );
@@ -147,10 +147,10 @@ export default function NetworkEffect() {
         <NetworkParticles />
         <EffectComposer>
           <Bloom 
-            intensity={2.5} 
-            luminanceThreshold={0.2} 
+            intensity={3.5} 
+            luminanceThreshold={0.1} 
             luminanceSmoothing={0.9}
-            radius={1.2}
+            radius={1.5}
           />
         </EffectComposer>
       </Canvas>

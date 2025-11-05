@@ -23,7 +23,7 @@ const Hero = () => {
       }} />
         
         {/* Gradient Overlay for Depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0E0E0E] via-[#0E0E0E]/90 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0E0E0E] via-[#0E0E0E]/50 to-transparent" />
       </div>
 
       {/* Left Side: Content */}
