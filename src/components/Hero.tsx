@@ -34,10 +34,7 @@ const Hero = () => {
         <div className="max-w-2xl space-y-8 animate-fade-in-up">
           {/* Headline */}
           <h1 className="font-heading font-black text-6xl lg:text-7xl xl:text-[72px] leading-[1.05] tracking-[-0.02em] text-white">
-            It's time to move from{" "}
-            <span className="text-primary">AI-Curious</span>
-            {" "}to{" "}
-            <span className="text-primary">AI-Integrated.</span>
+            It's time to move from AI-Curious to AI-Integrated.
           </h1>
 
           {/* Subline */}
