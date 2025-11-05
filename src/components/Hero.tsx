@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import NetworkEffect from "./NetworkEffect";
-
 const Hero = () => {
   const scrollToProjects = () => {
     const element = document.getElementById("projects");
@@ -12,18 +11,16 @@ const Hero = () => {
       });
     }
   };
-
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#0E0E0E] to-black">
+  return <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#0E0E0E] to-black">
       {/* Right Side: Animated Network Background */}
       <NetworkEffect />
       
       {/* Additional ambient glow */}
       <div className="absolute right-0 top-0 bottom-0 w-[60%] overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] animate-orbital-glow" />
-        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] bg-primary/15 rounded-full blur-[100px] animate-orbital-glow" 
-          style={{ animationDelay: "2s" }} 
-        />
+        <div className="absolute bottom-1/3 right-1/3 w-[350px] h-[350px] bg-primary/15 rounded-full blur-[100px] animate-orbital-glow" style={{
+        animationDelay: "2s"
+      }} />
         
         {/* Gradient Overlay for Depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0E0E0E] via-[#0E0E0E]/90 to-transparent" />
@@ -38,27 +35,16 @@ const Hero = () => {
           </h1>
 
           {/* Subline */}
-          <p className="text-xl font-medium text-[#B1B1B1] leading-relaxed">
-            Tailored automations and strategy built for modern companies.
-          </p>
+          
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button 
-              onClick={scrollToProjects} 
-              variant="outline" 
-              size="lg" 
-              className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300"
-            >
+            <Button onClick={scrollToProjects} variant="outline" size="lg" className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300">
               See Our Work
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Link to="/contact">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300"
-              >
+              <Button variant="outline" size="lg" className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300">
                 Contact Us
               </Button>
             </Link>
@@ -68,8 +54,6 @@ const Hero = () => {
 
       {/* Gradient fade to next section */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
