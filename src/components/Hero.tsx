@@ -24,14 +24,12 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto text-center space-y-12 animate-fade-in-up">
 
           {/* Headline */}
-          <h1 className="text-5xl md:text-7xl lg:text-h1 font-heading font-black leading-[1.05] tracking-[-0.03em] text-foreground">It's time to move from AI-Curious to AI-integrated.{" "}
+          <h1 className="text-5xl md:text-7xl lg:text-h1 font-heading font-black leading-[1.05] tracking-[-0.03em] text-foreground">Synergaise LTD.{" "}
             <span className="text-primary font-semibold">effortlessly</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-medium">
-            Tailored automations and strategy built for modern companies.
-          </p>
+          
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
