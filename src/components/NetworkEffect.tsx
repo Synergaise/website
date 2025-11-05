@@ -4,10 +4,15 @@ import { Points, PointMaterial } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
-function NetworkParticles() {
+interface NetworkParticlesProps {
+  startAnimation: boolean;
+}
+
+function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
   const ref = useRef<THREE.Points>(null);
   const lineRef = useRef<THREE.LineSegments>(null);
   const [mouse] = useState(() => new THREE.Vector2());
+  const [animationProgress, setAnimationProgress] = useState(0);
   const { viewport } = useThree();
 
   // Generate random particle positions with lower density
@@ -48,6 +53,11 @@ function NetworkParticles() {
     const positions = ref.current.geometry.attributes.position.array as Float32Array;
     const linePositions: number[] = [];
     const time = state.clock.elapsedTime;
+
+    // Progressive animation on start
+    if (startAnimation && animationProgress < 1) {
+      setAnimationProgress(Math.min(animationProgress + 0.02, 1));
+    }
 
     // Mouse influence with gentler interaction
     const mouseInfluence = new THREE.Vector3(
@@ -118,10 +128,16 @@ function NetworkParticles() {
     lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
     lineRef.current.geometry = lineGeometry;
 
-    // Gentle pulsing opacity
-    const pulseOpacity = 0.5 + Math.sin(time * 0.5) * 0.2;
+    // Gentle pulsing opacity with progressive fade-in
+    const baseOpacity = animationProgress * 0.5;
+    const pulseOpacity = baseOpacity + Math.sin(time * 0.5) * 0.2 * animationProgress;
     if (lineRef.current.material) {
       (lineRef.current.material as THREE.LineBasicMaterial).opacity = pulseOpacity;
+    }
+    
+    // Progressive particle opacity
+    if (ref.current.material) {
+      (ref.current.material as THREE.PointsMaterial).opacity = 0.9 * animationProgress;
     }
 
     // Very slow organic rotation
@@ -149,12 +165,16 @@ function NetworkParticles() {
   );
 }
 
-export default function NetworkEffect() {
+interface NetworkEffectProps {
+  startAnimation: boolean;
+}
+
+export default function NetworkEffect({ startAnimation }: NetworkEffectProps) {
   return (
     <div className="absolute right-0 top-0 bottom-0 w-[60%] h-full">
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
-        <NetworkParticles />
+        <NetworkParticles startAnimation={startAnimation} />
         <EffectComposer>
           <Bloom 
             intensity={2.0} 
