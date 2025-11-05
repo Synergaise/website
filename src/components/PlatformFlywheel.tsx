@@ -9,25 +9,33 @@ const PlatformFlywheel = () => {
         {/* Scrolling Platform Carousel */}
         <div className="relative overflow-hidden">
           <div className="flex gap-4 animate-scroll hover:pause-animation">
-            {platforms.map((platform, index) => <div key={index} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
-                {platform === "Clay" ? (
+            {platforms.map((platform, index) => 
+              platform === "Clay" ? (
+                <div key={index} className="flex-shrink-0 flex items-center">
                   <img src={clayLogo} alt="Clay" className="h-5 w-auto" />
-                ) : (
+                </div>
+              ) : (
+                <div key={index} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
                   <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
                     {platform}
                   </span>
-                )}
-              </div>)}
+                </div>
+              )
+            )}
             {/* Duplicate for seamless infinite loop */}
-            {platforms.map((platform, index) => <div key={`duplicate-${index}`} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
-                {platform === "Clay" ? (
+            {platforms.map((platform, index) => 
+              platform === "Clay" ? (
+                <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center">
                   <img src={clayLogo} alt="Clay" className="h-5 w-auto" />
-                ) : (
+                </div>
+              ) : (
+                <div key={`duplicate-${index}`} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
                   <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
                     {platform}
                   </span>
-                )}
-              </div>)}
+                </div>
+              )
+            )}
           </div>
         </div>
       </div>
