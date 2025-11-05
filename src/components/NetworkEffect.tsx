@@ -10,14 +10,14 @@ function NetworkParticles() {
   const [mouse] = useState(() => new THREE.Vector2());
   const { viewport } = useThree();
 
-  // Generate random particle positions - expanded range
+  // Generate random particle positions
   const particleCount = 80;
   const particles = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     const velocities: number[] = [];
     
     for (let i = 0; i < particleCount; i++) {
-      positions[i * 3] = (Math.random() - 0.3) * 10; // Shifted left
+      positions[i * 3] = (Math.random() - 0.5) * 8;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 6;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 4;
       
@@ -80,8 +80,8 @@ function NetworkParticles() {
       positions[i * 3 + 1] += particles.velocities[i * 3 + 1];
       positions[i * 3 + 2] += particles.velocities[i * 3 + 2];
 
-      // Boundary check and bounce - expanded boundaries
-      if (Math.abs(positions[i * 3]) > 5) particles.velocities[i * 3] *= -1;
+      // Boundary check and bounce
+      if (Math.abs(positions[i * 3]) > 4) particles.velocities[i * 3] *= -1;
       if (Math.abs(positions[i * 3 + 1]) > 3) particles.velocities[i * 3 + 1] *= -1;
       if (Math.abs(positions[i * 3 + 2]) > 2) particles.velocities[i * 3 + 2] *= -1;
     }
@@ -141,7 +141,7 @@ function NetworkParticles() {
 
 export default function NetworkEffect() {
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute right-0 top-0 bottom-0 w-[60%] h-full">
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <NetworkParticles />
