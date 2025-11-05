@@ -86,14 +86,15 @@ function NetworkParticles() {
         <PointMaterial
           transparent
           color="#2979FF"
-          size={0.08}
+          size={0.12}
           sizeAttenuation={true}
           depthWrite={false}
-          opacity={0.8}
+          opacity={1}
+          blending={THREE.AdditiveBlending}
         />
       </Points>
       <lineSegments ref={lineRef}>
-        <lineBasicMaterial color="#2979FF" transparent opacity={0.2} />
+        <lineBasicMaterial color="#2979FF" transparent opacity={0.6} />
       </lineSegments>
     </>
   );
