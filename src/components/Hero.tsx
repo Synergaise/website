@@ -21,12 +21,6 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto text-center space-y-12 animate-fade-in-up">
-          {/* Logo Mark */}
-          <div className="flex justify-center mb-12">
-            <div className="w-20 h-20 rounded-full bg-gradient-orbital border-2 border-primary/50 flex items-center justify-center" style={{ boxShadow: '0 0 12px rgba(41, 121, 255, 0.25)' }}>
-              <div className="w-12 h-12 rounded-full border-4 border-primary animate-orbital-glow" />
-            </div>
-          </div>
 
           {/* Headline */}
           <h1 className="text-5xl md:text-7xl lg:text-h1 font-heading font-black leading-[1.05] tracking-[-0.03em] text-foreground">

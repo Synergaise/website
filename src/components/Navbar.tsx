@@ -23,12 +23,6 @@ const Navbar = () => {
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto">
       <div className="backdrop-blur-md bg-graphite/30 border border-border/50 rounded-full px-6 py-3 shadow-lg">
         <div className="flex items-center justify-between md:justify-start gap-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-center shrink-0">
-            <div className="w-10 h-10 rounded-full bg-gradient-orbital border border-primary/50 flex items-center justify-center">
-              <div className="w-6 h-6 rounded-full border-2 border-primary" />
-            </div>
-          </Link>
 
           {/* Centered Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center gap-8 mx-8">
