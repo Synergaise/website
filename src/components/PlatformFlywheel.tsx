@@ -18,7 +18,7 @@ const platformLogos: Record<string, { src: string; height: string }> = {
   "Supabase": { src: supabaseLogo, height: "h-8" },
 };
 
-const platforms = ["Make", "Clay", "Claude", "n8n", "Cursor", "Lovable", "OpenAI", "Supabase", "Instantly", "Zapmail", "Apollo", "Monday.com", "Replit"];
+const platforms = ["Make", "Clay", "Claude", "n8n", "Cursor", "Lovable", "OpenAI", "Supabase"];
 const PlatformFlywheel = () => {
   return <section className="my-24">
       <div className="container mx-auto px-6">
@@ -31,33 +31,17 @@ const PlatformFlywheel = () => {
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
           <div className="flex gap-4 animate-scroll hover:pause-animation">
-            {platforms.map((platform, index) => 
-              platformLogos[platform] ? (
-                <div key={index} className="flex-shrink-0 flex items-center">
-                  <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto`} />
-                </div>
-              ) : (
-                <div key={index} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
-                  <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
-                    {platform}
-                  </span>
-                </div>
-              )
-            )}
+            {platforms.map((platform, index) => (
+              <div key={index} className="flex-shrink-0 flex items-center">
+                <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto`} />
+              </div>
+            ))}
             {/* Duplicate for seamless infinite loop */}
-            {platforms.map((platform, index) => 
-              platformLogos[platform] ? (
-                <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center">
-                  <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto`} />
-                </div>
-              ) : (
-                <div key={`duplicate-${index}`} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
-                  <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
-                    {platform}
-                  </span>
-                </div>
-              )
-            )}
+            {platforms.map((platform, index) => (
+              <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center">
+                <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto`} />
+              </div>
+            ))}
           </div>
         </div>
       </div>
