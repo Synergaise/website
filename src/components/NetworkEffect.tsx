@@ -1,6 +1,7 @@
 import { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
+import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 
 function NetworkParticles() {
@@ -106,6 +107,14 @@ export default function NetworkEffect() {
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <NetworkParticles />
+        <EffectComposer>
+          <Bloom 
+            intensity={1.5} 
+            luminanceThreshold={0.3} 
+            luminanceSmoothing={0.9}
+            radius={0.8}
+          />
+        </EffectComposer>
       </Canvas>
     </div>
   );
