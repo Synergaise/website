@@ -97,7 +97,7 @@ const ProjectsSection = () => {
             What People Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Trusted by innovators across industries
+            Trusted by decision makers across industries
           </p>
         </div>
 
