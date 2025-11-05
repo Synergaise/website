@@ -11,7 +11,7 @@ function NetworkParticles() {
   const { viewport } = useThree();
 
   // Generate random particle positions
-  const particleCount = 80;
+  const particleCount = 150;
   const particles = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     const velocities: number[] = [];
@@ -94,7 +94,7 @@ function NetworkParticles() {
         const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
         const distance = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
-        if (distance < 1.5) {
+        if (distance < 2.2) {
           linePositions.push(
             positions[i * 3],
             positions[i * 3 + 1],
