@@ -16,7 +16,9 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#0E0E0E] to-black">
       {/* Right Side: Animated Network Background */}
-      <NetworkEffect />
+      <div className="absolute right-0 top-0 bottom-0 w-[70%] h-full">
+        <NetworkEffect />
+      </div>
       
       {/* Additional ambient glow */}
       <div className="absolute right-0 top-0 bottom-0 w-[60%] overflow-hidden pointer-events-none">
