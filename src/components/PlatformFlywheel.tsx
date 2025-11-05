@@ -6,6 +6,8 @@ import cursorLogo from "@/assets/cursor-logo.png";
 import lovableLogo from "@/assets/lovable-logo.png";
 import openaiLogo from "@/assets/openai-logo.png";
 import supabaseLogo from "@/assets/supabase-logo.png";
+import vapiLogo from "@/assets/vapi-logo.png";
+import elevenlabsLogo from "@/assets/elevenlabs-logo.png";
 
 const platformLogos: Record<string, { src: string; height: string }> = {
   "Make": { src: makeLogo, height: "h-8" },
@@ -16,9 +18,11 @@ const platformLogos: Record<string, { src: string; height: string }> = {
   "Lovable": { src: lovableLogo, height: "h-16" },
   "OpenAI": { src: openaiLogo, height: "h-8" },
   "Supabase": { src: supabaseLogo, height: "h-8" },
+  "Vapi": { src: vapiLogo, height: "h-10" },
+  "ElevenLabs": { src: elevenlabsLogo, height: "h-8" },
 };
 
-const platforms = ["Make", "Clay", "Claude", "n8n", "Cursor", "Lovable", "OpenAI", "Supabase"];
+const platforms = ["Make", "Clay", "Claude", "n8n", "Cursor", "Lovable", "OpenAI", "Supabase", "Vapi", "ElevenLabs"];
 const PlatformFlywheel = () => {
   return <section className="my-24">
       <div className="container mx-auto px-6">
