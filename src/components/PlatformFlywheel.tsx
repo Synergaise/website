@@ -1,3 +1,5 @@
+import clayLogo from "@/assets/clay-logo.png";
+
 const platforms = ["Make", "Clay", "Instantly", "Zapmail", "Apollo", "Pipedrive", "Monday.com", "n8n", "Replit", "Cursor"];
 const PlatformFlywheel = () => {
   return <section className="my-24">
@@ -8,15 +10,23 @@ const PlatformFlywheel = () => {
         <div className="relative overflow-hidden">
           <div className="flex gap-4 animate-scroll hover:pause-animation">
             {platforms.map((platform, index) => <div key={index} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
-                <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
-                  {platform}
-                </span>
+                {platform === "Clay" ? (
+                  <img src={clayLogo} alt="Clay" className="h-5 w-auto" />
+                ) : (
+                  <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
+                    {platform}
+                  </span>
+                )}
               </div>)}
             {/* Duplicate for seamless infinite loop */}
             {platforms.map((platform, index) => <div key={`duplicate-${index}`} className="flex-shrink-0 px-6 py-3 bg-graphite/30 backdrop-blur-md border border-white/8 rounded-full">
-                <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
-                  {platform}
-                </span>
+                {platform === "Clay" ? (
+                  <img src={clayLogo} alt="Clay" className="h-5 w-auto" />
+                ) : (
+                  <span className="text-base font-heading font-medium text-off-white whitespace-nowrap">
+                    {platform}
+                  </span>
+                )}
               </div>)}
           </div>
         </div>
