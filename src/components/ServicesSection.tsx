@@ -6,19 +6,16 @@ const services = [
     icon: Brain,
     title: "AI Strategy Consulting",
     description: "Align automation with business models. We help you identify the right opportunities and build a roadmap to intelligent transformation.",
-    animation: "animate-pulse",
   },
   {
     icon: Network,
     title: "Tailored AI Workflows",
     description: "Design, deploy, and integrate scalable systems — automation built precisely around your operations.",
-    animation: "hover:animate-pulse",
   },
   {
     icon: GraduationCap,
     title: "Education & Enablement",
     description: "Upskill teams to leverage AI confidently. Hands-on training that empowers your people to innovate.",
-    animation: "hover:animate-pulse",
   },
 ];
 
@@ -52,8 +49,8 @@ const ServicesSection = () => {
               }}
             >
               <div className="mb-6">
-                <div className={`w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 ${service.animation}`}>
-                  <service.icon className="w-7 h-7 text-primary" />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  <service.icon className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
                 </div>
               </div>
               <h3 className="text-xl md:text-2xl lg:text-[28px] font-heading font-bold mb-4 leading-[1.3]">
