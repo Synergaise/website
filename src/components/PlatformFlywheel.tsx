@@ -34,16 +34,16 @@ const PlatformFlywheel = () => {
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
-          <div className="flex gap-12 animate-scroll hover:pause-animation">
+          <div className="flex gap-12 animate-scroll hover:pause-animation will-change-transform">
             {platforms.map((platform, index) => (
-              <div key={index} className="flex-shrink-0 flex items-center">
-                <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto`} />
+              <div key={index} className="flex-shrink-0 flex items-center justify-center min-w-[120px]">
+                <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto object-contain`} />
               </div>
             ))}
             {/* Duplicate for seamless infinite loop */}
             {platforms.map((platform, index) => (
-              <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center">
-                <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto`} />
+              <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center justify-center min-w-[120px]">
+                <img src={platformLogos[platform].src} alt={platform} className={`${platformLogos[platform].height} w-auto object-contain`} />
               </div>
             ))}
           </div>
