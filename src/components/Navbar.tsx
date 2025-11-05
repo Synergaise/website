@@ -20,43 +20,52 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto">
+      <div className="backdrop-blur-md bg-graphite/30 border border-border/50 rounded-full px-6 py-3 shadow-lg">
+        <div className="flex items-center justify-between md:justify-start gap-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gradient-orbital border border-primary flex items-center justify-center">
-              <div className="w-6 h-6 rounded-full border-2 border-primary animate-orbital-glow" />
+          <Link to="/" className="flex items-center shrink-0">
+            <div className="w-10 h-10 rounded-full bg-gradient-orbital border border-primary/50 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full border-2 border-primary" />
             </div>
-            <span className="text-xl font-heading font-bold tracking-tight">Synergaise</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm font-accent text-muted-foreground hover:text-foreground transition-colors">
+          {/* Centered Desktop Navigation */}
+          <div className="hidden md:flex items-center justify-center gap-8 mx-8">
+            <Link
+              to="/"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
               Home
             </Link>
             <button
               onClick={() => scrollToSection("services")}
-              className="text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Services
             </button>
             <button
               onClick={() => scrollToSection("projects")}
-              className="text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Projects
             </button>
             <Link
               to="/mission"
-              className="text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Mission & Values
             </Link>
+          </div>
+
+          {/* Contact Button */}
+          <div className="hidden md:block shrink-0">
             <Link to="/contact">
-              <Button variant="default" size="sm" className="font-heading font-bold uppercase text-xs tracking-wider">
-                Contact
+              <Button
+                size="sm"
+                className="rounded-full font-heading font-bold uppercase text-xs tracking-[0.04em] px-6"
+              >
+                Contact Us
               </Button>
             </Link>
           </div>
@@ -64,7 +73,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-foreground"
+            className="md:hidden text-foreground ml-auto"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -72,38 +81,43 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 space-y-4 animate-fade-in-up">
-            <Link
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Home
-            </Link>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="block w-full text-left text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Services
-            </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="block w-full text-left text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Projects
-            </button>
-            <Link
-              to="/mission"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-sm font-accent text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Mission & Values
-            </Link>
-            <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
-              <Button variant="default" size="sm" className="w-full font-heading font-bold uppercase text-xs tracking-wider">
-                Contact
-              </Button>
-            </Link>
+          <div className="md:hidden mt-4 pt-4 border-t border-border/50">
+            <div className="flex flex-col gap-4">
+              <Link
+                to="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Home
+              </Link>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => scrollToSection("projects")}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
+              >
+                Projects
+              </button>
+              <Link
+                to="/mission"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+              >
+                Mission & Values
+              </Link>
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)}>
+                <Button
+                  size="sm"
+                  className="w-full rounded-full font-heading font-bold uppercase text-xs tracking-[0.04em]"
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
           </div>
         )}
       </div>
