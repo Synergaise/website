@@ -20,8 +20,8 @@ const services = [
 ];
 
 const ServicesSection = () => {
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
+  const scrollToReviews = () => {
+    const element = document.getElementById("reviews");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -62,12 +62,12 @@ const ServicesSection = () => {
 
         <div className="text-center">
           <Button
-            onClick={scrollToProjects}
+            onClick={scrollToReviews}
             variant="outline"
             size="lg"
             className="font-heading font-bold uppercase text-sm tracking-wider px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
           >
-            See Case Studies
+            See Client Reviews
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

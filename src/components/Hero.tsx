@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import NetworkEffect from "./NetworkEffect";
 const Hero = () => {
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
+  const scrollToReviews = () => {
+    const element = document.getElementById("reviews");
     if (element) {
       element.scrollIntoView({
         behavior: "smooth"
@@ -39,8 +39,8 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Button onClick={scrollToProjects} variant="outline" size="lg" className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300">
-              See Our Work
+            <Button onClick={scrollToReviews} variant="outline" size="lg" className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300">
+              Reviews
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <a href="https://cal.com/jude-hill-a6kiig/discovery" target="_blank" rel="noopener noreferrer">

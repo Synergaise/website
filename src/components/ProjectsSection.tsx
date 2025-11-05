@@ -23,12 +23,12 @@ const projects = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-32 relative">
+    <section id="reviews" className="py-32 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-graphite/10 to-transparent" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl lg:text-[42px] font-heading font-bold leading-[1.2] tracking-tight">
-            Case Studies
+            Client Reviews
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Real-world impact from intelligent automation

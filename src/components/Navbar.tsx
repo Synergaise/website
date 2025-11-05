@@ -39,10 +39,10 @@ const Navbar = () => {
               Services
             </button>
             <button
-              onClick={() => scrollToSection("projects")}
+              onClick={() => scrollToSection("reviews")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
-              Projects
+              Reviews
             </button>
             <Link
               to="/mission"
@@ -91,10 +91,10 @@ const Navbar = () => {
                 Services
               </button>
               <button
-                onClick={() => scrollToSection("projects")}
+                onClick={() => scrollToSection("reviews")}
                 className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
               >
-                Projects
+                Reviews
               </button>
               <Link
                 to="/mission"
