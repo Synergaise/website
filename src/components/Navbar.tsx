@@ -38,74 +38,76 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Brand stack (text fades out, logo fades in) */}
-        <Link to="/" onClick={scrollToTop} className="relative flex items-center group">
-          {/* Reserve space so the stack doesn't collapse while swapping */}
-          <div className="relative h-9" style={{ width: 170 }}>
-            {/* Brand text */}
-            <motion.span
-              style={{ opacity: textOpacity }}
-              className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-heading font-bold text-foreground leading-none transition-colors group-hover:text-[#90B5C9]"
-            >
-              SYNERG<span className="italic pr-[3px]">AI</span>SE
-            </motion.span>
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo - Left Corner */}
+          <Link to="/" onClick={scrollToTop} className="relative flex items-center group">
+            {/* Reserve space so the stack doesn't collapse while swapping */}
+            <div className="relative h-9" style={{ width: 170 }}>
+              {/* Brand text */}
+              <motion.span
+                style={{ opacity: textOpacity }}
+                className="absolute left-0 top-1/2 -translate-y-1/2 text-xl font-heading font-bold text-foreground leading-none transition-colors group-hover:text-[#90B5C9]"
+              >
+                SYNERG<span className="italic pr-[3px]">AI</span>SE
+              </motion.span>
 
-            {/* Circle logo (same anchor point, fades in) */}
-            <motion.img
-              src={logoCircle}
-              alt="Synergaise Logo"
-              className="absolute left-0 h-9 w-9 z-20 transition-all duration-300 group-hover:brightness-0 group-hover:invert-[0.3] group-hover:sepia group-hover:hue-rotate-[170deg] group-hover:saturate-[3] group-hover:contrast-[1.2]"
-              style={{
-                top: "50%",
-                y: logoY,          // ✅ true vertical centering
-                opacity: logoOpacity,
-                scale: logoScale,
-                rotate: logoRotate,
-                transformOrigin: "center center",
-              }}
-            />
+              {/* Circle logo (same anchor point, fades in) */}
+              <motion.img
+                src={logoCircle}
+                alt="Synergaise Logo"
+                className="absolute left-0 h-9 w-9 z-20 transition-all duration-300 group-hover:brightness-0 group-hover:invert-[0.3] group-hover:sepia group-hover:hue-rotate-[170deg] group-hover:saturate-[3] group-hover:contrast-[1.2]"
+                style={{
+                  top: "50%",
+                  y: logoY,
+                  opacity: logoOpacity,
+                  scale: logoScale,
+                  rotate: logoRotate,
+                  transformOrigin: "center center",
+                }}
+              />
+            </div>
+          </Link>
+
+          {/* Navigation - Right Corner */}
+          <div className="hidden md:flex items-center gap-8">
+            <button
+              onClick={() => scrollToSection("services")}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Services
+            </button>
+            <button
+              onClick={() => scrollToSection("reviews")}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Reviews
+            </button>
+            <Link
+              to="/mission"
+              onClick={scrollToTop}
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Mission & Values
+            </Link>
+            <Link to="/contact">
+              <Button
+                size="sm"
+                className="rounded-full font-heading font-bold uppercase text-xs tracking-[0.04em] px-6"
+              >
+                Contact Us
+              </Button>
+            </Link>
           </div>
-        </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+          {/* Mobile toggle */}
           <button
-            onClick={() => scrollToSection("services")}
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-foreground"
           >
-            Services
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
-          <button
-            onClick={() => scrollToSection("reviews")}
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            Reviews
-          </button>
-          <Link
-            to="/mission"
-            onClick={scrollToTop}
-            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-          >
-            Mission & Values
-          </Link>
-          <Link to="/contact">
-            <Button
-              size="sm"
-              className="rounded-full font-heading font-bold uppercase text-xs tracking-[0.04em] px-6"
-            >
-              Contact Us
-            </Button>
-          </Link>
         </div>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden text-foreground"
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile menu */}
