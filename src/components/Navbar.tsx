@@ -3,18 +3,18 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import logoCircle from "@/assets/logo-circle.png"; // ✅ your logo path
+import logoCircle from "@/assets/logo-circle.png"; // ✅ logo path
 
 const Navbar = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
-  // Scroll animations
-  const textOpacity = useTransform(scrollY, [0, 120], [1, 0]);
-  const logoOpacity = useTransform(scrollY, [0, 120], [0, 1]);
-  const logoScale = useTransform(scrollY, [0, 120], [0.7, 1.15]);
-  const logoRotate = useTransform(scrollY, [0, 120], [0, 15]);
+  // Slightly slower animation curve
+  const textOpacity = useTransform(scrollY, [0, 160], [1, 0]);
+  const logoOpacity = useTransform(scrollY, [40, 160], [0, 1]);
+  const logoScale = useTransform(scrollY, [0, 160], [0.75, 1.2]);
+  const logoRotate = useTransform(scrollY, [0, 160], [0, 10]);
 
   const scrollToSection = (sectionId: string) => {
     if (location.pathname !== "/") {
@@ -29,28 +29,28 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        {/* --- Brand Animation Wrapper --- */}
-        <Link to="/" className="relative flex items-center h-8">
-          {/* Text fades out */}
+        {/* --- Animated Brand --- */}
+        <Link to="/" className="relative flex items-center h-8 group">
+          {/* Fading brand text */}
           <motion.span
             style={{ opacity: textOpacity }}
-            className="absolute left-0 text-xl font-heading font-bold text-foreground leading-none"
+            className="absolute left-0 text-xl font-heading font-bold text-foreground leading-none transition-colors group-hover:text-[#90B5C9]"
           >
             SYNERG<span className="italic pr-[2.5px]">AI</span>SE
           </motion.span>
 
-          {/* Logo fades in and replaces text */}
+          {/* Fading in logo — same spot */}
           <motion.img
             src={logoCircle}
             alt="Synergaise Logo"
-            className="absolute left-0 h-8 w-8"
+            className="absolute left-0 h-9 w-9 transition-all duration-300 group-hover:brightness-0 group-hover:invert-[0.3] group-hover:sepia group-hover:hue-rotate-[170deg] group-hover:saturate-[3] group-hover:contrast-[1.2]"
             style={{
               opacity: logoOpacity,
               scale: logoScale,
               rotate: logoRotate,
               transformOrigin: "center center",
               top: "50%",
-              translateY: "-50%", // ✅ keeps it perfectly vertically aligned
+              translateY: "-50%",
             }}
           />
         </Link>
@@ -79,13 +79,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden text-foreground">
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden mt-4 pt-4 border-t border-border/50">
           <div className="flex flex-col gap-4">
