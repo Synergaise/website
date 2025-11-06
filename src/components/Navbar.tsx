@@ -20,12 +20,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-auto">
-      <div className="backdrop-blur-md bg-graphite/30 border border-border/50 rounded-full px-6 py-3 shadow-lg">
-        <div className="flex items-center justify-between md:justify-start gap-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo Placeholder */}
+          <div className="text-xl font-heading font-bold text-foreground">
+            SYNERGAISE
+          </div>
 
-          {/* Centered Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center gap-8 mx-8">
+          {/* Desktop Navigation - Right Side */}
+          <div className="hidden md:flex items-center gap-8">
             <Link
               to="/"
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
@@ -50,10 +54,6 @@ const Navbar = () => {
             >
               Mission & Values
             </Link>
-          </div>
-
-          {/* Contact Button */}
-          <div className="hidden md:block shrink-0">
             <Link to="/contact">
               <Button
                 size="sm"
@@ -67,7 +67,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-foreground ml-auto"
+            className="md:hidden text-foreground"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
