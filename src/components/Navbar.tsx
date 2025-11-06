@@ -31,11 +31,16 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Brand stack (text fades out, logo fades in) */}
-        <Link to="/" className="relative flex items-center group">
+        <Link to="/" onClick={scrollToTop} className="relative flex items-center group">
           {/* Reserve space so the stack doesn't collapse while swapping */}
           <div className="relative h-9" style={{ width: 170 }}>
             {/* Brand text */}
@@ -79,6 +84,7 @@ const Navbar = () => {
           </button>
           <Link
             to="/mission"
+            onClick={scrollToTop}
             className="text-sm font-medium text-foreground hover:text-primary transition-colors"
           >
             Mission & Values
@@ -108,7 +114,7 @@ const Navbar = () => {
           <div className="flex flex-col gap-4">
             <Link
               to="/"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={scrollToTop}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Home
@@ -127,7 +133,7 @@ const Navbar = () => {
             </button>
             <Link
               to="/mission"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={scrollToTop}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Mission & Values
