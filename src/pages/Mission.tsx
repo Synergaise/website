@@ -1,182 +1,207 @@
 import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Brain, Rocket, Wrench, Handshake, Globe } from "lucide-react";
+import { useEffect, useRef } from "react";
 
-const values = [
+const coreValues = [
   {
-    icon: Brain,
-    title: "Innovation through Curiosity",
-    description: "We constantly explore emerging technologies and methodologies to deliver cutting-edge solutions.",
-  },
-  {
-    icon: Rocket,
-    title: "Empowerment through Learning",
-    description: "We believe in upskilling teams and building internal capabilities for long-term success.",
-  },
-  {
-    icon: Wrench,
+    number: "01",
     title: "Simplicity by Design",
-    description: "Complex problems deserve elegant solutions. We build systems that are powerful yet intuitive.",
+    text: "We build systems that feel effortless — the simplest path that works is the smartest one.",
   },
   {
-    icon: Handshake,
+    number: "02",
+    title: "Empowerment through Learning",
+    text: "We upskill teams to become system builders, not system dependents.",
+  },
+  {
+    number: "03",
     title: "Integrity in Delivery",
-    description: "We commit to transparency, reliability, and delivering measurable value to our partners.",
+    text: "We build trust through transparency and execution. Every deliverable reflects care and precision.",
   },
   {
-    icon: Globe,
+    number: "04",
+    title: "Innovation through Curiosity",
+    text: "We explore relentlessly — mastering emerging tools to unlock new creative and operational potential.",
+  },
+  {
+    number: "05",
     title: "Scalability in Everything",
-    description: "Every system we build is designed to grow with your business, from prototype to enterprise.",
+    text: "From code to culture, everything we build grows intelligently with your business.",
   },
 ];
 
 const Mission = () => {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -100px 0px" }
+    );
+
+    document.querySelectorAll(".fade-in-scroll").forEach((el) => {
+      observerRef.current?.observe(el);
+    });
+
+    return () => observerRef.current?.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-heading font-bold leading-[1.1] tracking-tight">
-              Our Mission & Values
+      <section className="pt-32 pb-24 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="text-center space-y-8 animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.05] tracking-tight">
+              Building intelligent systems that think, adapt, and last.
             </h1>
-            <p className="text-xl text-muted-foreground">
-              We believe in continuous learning, innovation, and intelligent transformation.
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Synergaise builds AI systems that redefine how people create value — reliable, interpretable, and built to scale.
             </p>
+            <Link to="/contact">
+              <Button 
+                size="lg" 
+                className="mt-4 px-8 py-6 text-base font-heading font-bold hover:shadow-glow-orbital transition-all duration-300"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Mission Statement */}
-      <section className="py-20 border-y border-border">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-bold leading-[1.2] text-center mb-12">
-              Our Mission
-            </h2>
-            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              At Synergaise, our mission is to create real, measurable business value by building the railroad to AI and automation for forward-thinking organisations. We guide companies from consulting to implementation and team training — empowering them to become data-driven, adaptive, and future-ready.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Divider */}
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="h-px bg-border" />
+      </div>
 
-      {/* Core Belief */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-bold leading-[1.2] text-center mb-12">
-              Why We Exist
-            </h2>
-            <p className="text-lg md:text-xl leading-relaxed text-muted-foreground">
-              We believe in continuous learning and intelligent transformation. Businesses that learn and adapt will thrive — we help them harness AI to simplify work, amplify capability, and unlock growth.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Purpose Section - Two Column */}
+      <section className="py-24 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+            {/* Left Column - Section Title */}
+            <div className="lg:col-span-3 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+              <h2 className="text-2xl md:text-3xl font-heading font-bold sticky top-32">
+                Our Purpose
+              </h2>
+            </div>
 
-      {/* Our Approach */}
-      <section className="py-20 bg-gradient-to-b from-transparent via-graphite/10 to-transparent">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-bold leading-[1.2] text-center mb-12">
-              How We Deliver
-            </h2>
-            <ul className="space-y-6 text-lg text-muted-foreground">
-              <li className="flex items-start gap-4">
-                <span className="text-primary text-2xl">•</span>
-                <span>Innovation and upskilling at the core of everything we do</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-primary text-2xl">•</span>
-                <span>Master the best tools — Make.com, n8n, Clay, Replit, Cursor, Lovable</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-primary text-2xl">•</span>
-                <span>Combine technical expertise with a consulting mindset</span>
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="text-primary text-2xl">•</span>
-                <span>Deliver simple, scalable, and sustainable systems</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Offering */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-bold leading-[1.2] text-center mb-12">
-              What We Do
-            </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 bg-gradient-card backdrop-blur-sm border border-border rounded-lg">
-                <h3 className="text-xl font-heading font-bold mb-2">Workflow Automation</h3>
-                <p className="text-muted-foreground">Streamline operations with intelligent process automation</p>
+            {/* Right Column - Content */}
+            <div className="lg:col-span-9 space-y-16">
+              {/* Main Statement */}
+              <div className="space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+                <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.2]">
+                  We believe AI should empower, not replace.
+                </h3>
+                <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  <p>
+                    At Synergaise, we see AI as the foundation for a new level of business performance. Used thoughtfully, it doesn't replace people — it amplifies their ability to think, decide, and execute intelligently.
+                  </p>
+                  <p>
+                    Our mission is to guide forward-thinking companies through this transformation — designing systems that simplify work, sharpen decisions, and scale sustainably.
+                  </p>
+                </div>
               </div>
-              <div className="p-6 bg-gradient-card backdrop-blur-sm border border-border rounded-lg">
-                <h3 className="text-xl font-heading font-bold mb-2">Data Integration</h3>
-                <p className="text-muted-foreground">Connect systems and unlock insights from your data</p>
-              </div>
-              <div className="p-6 bg-gradient-card backdrop-blur-sm border border-border rounded-lg">
-                <h3 className="text-xl font-heading font-bold mb-2">AI Enablement</h3>
-                <p className="text-muted-foreground">Deploy intelligent systems that enhance decision-making</p>
-              </div>
-              <div className="p-6 bg-gradient-card backdrop-blur-sm border border-border rounded-lg">
-                <h3 className="text-xl font-heading font-bold mb-2">Team Upskilling</h3>
-                <p className="text-muted-foreground">Empower your organization with AI literacy and tools</p>
+
+              {/* Three Core Beliefs */}
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+                  <h4 className="text-xl md:text-2xl font-heading font-bold">
+                    We Build Thoughtful Systems
+                  </h4>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    We don't automate for the sake of automation. Every system we design is intentional — built to serve people, processes, and progress.
+                  </p>
+                </div>
+
+                <div className="space-y-4 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+                  <h4 className="text-xl md:text-2xl font-heading font-bold">
+                    AI as a Craft
+                  </h4>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    We treat automation as craftsmanship. The art lies not in the tools, but in how we connect them — precisely, elegantly, and sustainably.
+                  </p>
+                </div>
+
+                <div className="space-y-4 md:col-span-2 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+                  <h4 className="text-xl md:text-2xl font-heading font-bold">
+                    Learning as Leverage
+                  </h4>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    We teach as we build. Our systems are built to empower teams, not replace them — creating long-term capability, not dependency.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-20 border-t border-border">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl lg:text-[42px] font-heading font-bold leading-[1.2] text-center mb-16">
-            Core Values
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {values.map((value, index) => (
-              <div
-                key={index}
-                className="p-8 bg-gradient-card backdrop-blur-sm border border-border rounded-lg hover:border-primary transition-all duration-300 space-y-4"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <value.icon className="w-6 h-6 text-primary" />
+      {/* Divider */}
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="h-px bg-border" />
+      </div>
+
+      {/* Core Values Section */}
+      <section className="py-24 px-6">
+        <div className="container mx-auto max-w-7xl">
+          <div className="space-y-12">
+            {/* Title and Intro */}
+            <div className="max-w-3xl fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold mb-6">
+                Our Core Values
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                Our values guide how we think, build, and collaborate — defining not just what we deliver, but how we deliver it.
+              </p>
+            </div>
+
+            {/* Values Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
+              {coreValues.map((value, index) => (
+                <div
+                  key={index}
+                  className="space-y-4 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700 group"
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <div className="flex items-baseline gap-4">
+                    <span className="text-4xl md:text-5xl font-heading font-black text-primary/30 group-hover:text-primary transition-colors duration-300">
+                      {value.number}
+                    </span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-heading font-bold">
+                    {value.title}
+                  </h3>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {value.text}
+                  </p>
                 </div>
-                <h3 className="text-xl font-heading font-bold">{value.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Closing Statement */}
-      <section className="py-20 bg-gradient-to-b from-transparent via-graphite/10 to-transparent">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <blockquote className="text-2xl md:text-3xl font-heading font-bold leading-[1.3] space-y-4">
-              <p>"We don't start with what we do — we start with why.</p>
-              <p>We believe in transformation through intelligent innovation.</p>
-              <p className="text-primary">The result: elegant, cutting-edge systems that drive real business value."</p>
+      {/* Closing Quote */}
+      <section className="py-24 px-6 bg-gradient-to-b from-transparent via-graphite/5 to-transparent">
+        <div className="container mx-auto max-w-4xl">
+          <div className="text-center space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
+            <blockquote className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-[1.3] text-foreground/90">
+              "The noise around AI is loud — full of hype, fear, and false promises. But progress doesn't come from noise. It comes from systems that think, adapt, and last."
             </blockquote>
-            <Link to="/">
-              <Button
-                variant="outline"
-                size="lg"
-                className="font-heading font-bold uppercase text-sm tracking-wider px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground mt-8"
-              >
-                Back to Homepage
-              </Button>
-            </Link>
+            <p className="text-lg md:text-xl text-muted-foreground">
+              — Founders, Synergaise
+            </p>
           </div>
         </div>
       </section>
