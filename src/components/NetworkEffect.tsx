@@ -157,7 +157,7 @@ export default function NetworkEffect({ startAnimation }: NetworkEffectProps) {
         <ambientLight intensity={0.6} />
         <NetworkParticles startAnimation={startAnimation} />
         <EffectComposer>
-          <Bloom intensity={1.2} luminanceThreshold={0.2} luminanceSmoothing={0.9} radius={0.8} />
+          <Bloom intensity={1.2} luminanceThreshold={0} luminanceSmoothing={0.9} radius={0.8} />
         </EffectComposer>
       </Canvas>
     </div>
