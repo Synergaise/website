@@ -30,13 +30,13 @@ const PlatformFlywheel = () => {
       id="powered-by"
       className="relative py-20 px-6 flex flex-col items-center justify-center text-center rounded-[36px] mx-auto max-w-7xl my-20 shadow-sm"
       style={{
-        background: "linear-gradient(180deg, #E9E6DF 0%, #E5E2DA 100%)", // coastal sand tone
+        background: "linear-gradient(180deg, #E9E6DF 0%, #E5E2DA 100%)",
         border: "1px solid rgba(0,0,0,0.05)",
         backdropFilter: "blur(8px)",
         overflow: "hidden",
       }}
     >
-      {/* Soft light vignette for premium look */}
+      {/* Soft light vignette */}
       <div
         className="absolute inset-0 rounded-[36px] pointer-events-none"
         style={{
@@ -49,25 +49,15 @@ const PlatformFlywheel = () => {
           Powered by Leading Platforms
         </p>
 
-        {/* Scrolling Platform Carousel */}
+        {/* Infinite scrolling carousel */}
         <div className="relative overflow-hidden">
           {/* Edge fades */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#E9E6DF] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#E9E6DF] to-transparent z-10 pointer-events-none" />
 
-          <div className="flex gap-12 animate-scroll hover:pause-animation will-change-transform">
-            {platforms.map((platform, index) => (
+          <div className="flex gap-12 animate-marquee will-change-transform">
+            {[...platforms, ...platforms].map((platform, index) => (
               <div key={index} className="flex-shrink-0 flex items-center justify-center min-w-[120px]">
-                <img
-                  src={platformLogos[platform].src}
-                  alt={platform}
-                  className={`${platformLogos[platform].height} w-auto object-contain opacity-90 hover:opacity-100 transition-all duration-300`}
-                />
-              </div>
-            ))}
-            {/* Duplicate for infinite loop */}
-            {platforms.map((platform, index) => (
-              <div key={`duplicate-${index}`} className="flex-shrink-0 flex items-center justify-center min-w-[120px]">
                 <img
                   src={platformLogos[platform].src}
                   alt={platform}
@@ -79,13 +69,33 @@ const PlatformFlywheel = () => {
         </div>
       </div>
 
-      {/* Soft bottom fade for natural transition */}
+      {/* Soft bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
         style={{
           background: "linear-gradient(to bottom, rgba(233,230,223,0) 0%, rgba(233,230,223,1) 100%)",
         }}
       />
+
+      {/* Inline animation style */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-marquee {
+          display: flex;
+          width: 200%;
+          animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };
