@@ -26,11 +26,16 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setMobileMenuOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* --- Animated Brand --- */}
-        <Link to="/" className="relative flex items-center h-8 group">
+        <Link to="/" onClick={scrollToTop} className="relative flex items-center h-8 group">
           {/* Fading brand text */}
           <motion.span
             style={{ opacity: textOpacity }}
@@ -69,7 +74,7 @@ const Navbar = () => {
           >
             Reviews
           </button>
-          <Link to="/mission" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+          <Link to="/mission" onClick={scrollToTop} className="text-sm font-medium text-foreground hover:text-primary transition-colors">
             Mission & Values
           </Link>
           <Link to="/contact">
@@ -91,7 +96,7 @@ const Navbar = () => {
           <div className="flex flex-col gap-4">
             <Link
               to="/"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={scrollToTop}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Home
@@ -110,7 +115,7 @@ const Navbar = () => {
             </button>
             <Link
               to="/mission"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={scrollToTop}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Mission & Values
