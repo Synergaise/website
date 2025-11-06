@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import MeetTheFoundersSection from "@/components/MeetTheFoundersSection";
 const coreValues = [{
   number: "01",
   title: "Simplicity by Design",
@@ -169,6 +170,9 @@ const Mission = () => {
           </div>
         </div>
       </section>
+
+      {/* Meet the Founders Section */}
+      <MeetTheFoundersSection />
 
       {/* Closing Quote */}
       <section className="py-24 px-6 bg-gradient-to-b from-transparent via-graphite/5 to-transparent">
