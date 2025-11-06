@@ -72,12 +72,6 @@ const Navbar = () => {
           {/* Navigation - Right Corner */}
           <div className="hidden md:flex items-center gap-8">
             <button
-              onClick={() => scrollToSection("services")}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              Services
-            </button>
-            <button
               onClick={() => scrollToSection("reviews")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
@@ -121,12 +115,6 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <button
-              onClick={() => scrollToSection("services")}
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
-            >
-              Services
-            </button>
             <button
               onClick={() => scrollToSection("reviews")}
               className="text-sm font-medium text-foreground hover:text-primary transition-colors text-left"
