@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ['Satoshi', 'sans-serif'],
-        body: ['Satoshi', 'sans-serif'],
+        body: ['Inter', 'Satoshi', 'sans-serif'],
         accent: ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {
@@ -53,13 +53,14 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          warm: "hsl(var(--accent-warm))",
         },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        "surface-tint": "hsl(var(--surface-tint))",
-        "highlight-glow": "hsl(var(--highlight-glow))",
+        "section-tint": "hsl(var(--section-tint))",
+        "highlight-bg": "hsl(var(--highlight-bg))",
       },
       borderRadius: {
         lg: "var(--radius)",
