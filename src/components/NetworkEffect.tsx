@@ -150,7 +150,7 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
       <Points ref={ref} positions={particles.positions} stride={3}>
         <PointMaterial
           transparent
-          color="#5BA3FF"
+          color="#A8C6D8"
           size={0.12}
           sizeAttenuation={true}
           depthWrite={false}
@@ -159,7 +159,7 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
         />
       </Points>
       <lineSegments ref={lineRef}>
-        <lineBasicMaterial color="#5BA3FF" transparent opacity={0.6} />
+        <lineBasicMaterial color="#A8C6D8" transparent opacity={0.6} />
       </lineSegments>
     </>
   );

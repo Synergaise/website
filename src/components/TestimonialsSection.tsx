@@ -33,17 +33,17 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="p-8 bg-gradient-card backdrop-blur-sm border border-border rounded-lg space-y-6"
+              className="p-8 bg-accent-warm/30 backdrop-blur-sm border border-accent-warm/40 rounded-lg space-y-6 hover:shadow-glow-card transition-all duration-300"
             >
-              <div className="text-3xl text-primary">"</div>
-              <blockquote className="text-xl md:text-2xl font-heading font-bold leading-[1.3]">
+              <div className="text-3xl text-foreground">"</div>
+              <blockquote className="text-xl md:text-2xl font-heading font-bold leading-[1.3] text-foreground">
                 {testimonial.quote}
               </blockquote>
               <div className="space-y-1">
                 <p className="text-sm font-accent text-foreground">
                   {testimonial.author}
                 </p>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-foreground-secondary">
                   {testimonial.company}
                 </p>
               </div>

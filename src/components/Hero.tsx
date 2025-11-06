@@ -29,7 +29,7 @@ const Hero = () => {
     }
   };
 
-  return <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-gradient-to-br from-[#0E0E0E] to-black">
+  return <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-background">
       {/* Black intro fade */}
       <div 
         className={`fixed inset-0 bg-black z-50 pointer-events-none transition-opacity duration-1000 ${
@@ -47,7 +47,7 @@ const Hero = () => {
       }} />
         
         {/* Gradient Overlay for Depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0E0E0E] via-[#0E0E0E]/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/50 to-transparent" />
       </div>
 
       {/* Left Side: Content */}
@@ -64,7 +64,7 @@ const Hero = () => {
         >
           {/* Headline */}
           <h1 
-            className="font-heading font-black text-6xl lg:text-7xl xl:text-[72px] leading-[1.05] tracking-[-0.02em] text-white"
+            className="font-heading font-black text-6xl lg:text-7xl xl:text-[72px] leading-[1.05] tracking-[-0.02em] text-foreground"
             style={{
               transition: 'transform 0.3s ease-out',
               transform: 'translateZ(0)',
@@ -94,7 +94,7 @@ const Hero = () => {
               onClick={scrollToReviews} 
               variant="outline" 
               size="lg" 
-              className="font-heading font-bold text-base tracking-wide px-8 border-2 border-primary text-white hover:bg-primary hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(41,121,255,0.5)]"
+              className="font-heading font-bold text-base tracking-wide px-8 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
             >
               Reviews
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -103,7 +103,7 @@ const Hero = () => {
               <Button 
                 variant="default" 
                 size="lg" 
-                className="font-heading font-bold text-base tracking-wide px-8 transition-all duration-300 hover:shadow-[0_0_20px_rgba(41,121,255,0.6)]"
+                className="font-heading font-bold text-base tracking-wide px-8 transition-all duration-300 hover:shadow-glow-hover"
               >
                 Schedule a Call
               </Button>
@@ -113,7 +113,7 @@ const Hero = () => {
       </div>
 
       {/* Gradient fade to next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background-secondary to-transparent" />
     </section>;
 };
 export default Hero;

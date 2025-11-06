@@ -22,9 +22,9 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo Placeholder */}
-          <div className="text-xl font-heading font-bold text-foreground">
+          <Link to="/" className="text-xl font-heading font-bold text-foreground hover:text-primary transition-colors">
             SYNERGAISE
-          </div>
+          </Link>
 
           {/* Desktop Navigation - Right Side */}
           <div className="hidden md:flex items-center gap-8">
