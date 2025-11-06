@@ -70,6 +70,14 @@ const Mission = () => {
         <div className="h-px bg-border" />
       </div>
 
+      {/* Meet the Founders Section */}
+      <MeetTheFoundersSection />
+
+      {/* Divider */}
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="h-px bg-border" />
+      </div>
+
       {/* Purpose Section - Two Column */}
       <section className="py-24 px-6">
         <div className="container mx-auto max-w-7xl">
@@ -170,9 +178,6 @@ const Mission = () => {
           </div>
         </div>
       </section>
-
-      {/* Meet the Founders Section */}
-      <MeetTheFoundersSection />
 
       {/* Closing Quote */}
       <section className="py-24 px-6 bg-gradient-to-b from-transparent via-graphite/5 to-transparent">
