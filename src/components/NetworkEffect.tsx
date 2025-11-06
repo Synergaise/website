@@ -1,8 +1,8 @@
-import { useRef, useMemo, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
-import { EffectComposer, Bloom } from '@react-three/postprocessing';
-import * as THREE from 'three';
+import { useRef, useMemo, useState } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Points, PointMaterial } from "@react-three/drei";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import * as THREE from "three";
 
 interface NetworkParticlesProps {
   startAnimation: boolean;
@@ -20,19 +20,15 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
   const particles = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     const velocities: number[] = [];
-    
+
     for (let i = 0; i < particleCount; i++) {
       positions[i * 3] = (Math.random() - 0.5) * 8;
       positions[i * 3 + 1] = (Math.random() - 0.5) * 6;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 4;
-      
-      velocities.push(
-        (Math.random() - 0.5) * 0.008,
-        (Math.random() - 0.5) * 0.008,
-        (Math.random() - 0.5) * 0.008
-      );
+
+      velocities.push((Math.random() - 0.5) * 0.008, (Math.random() - 0.5) * 0.008, (Math.random() - 0.5) * 0.008);
     }
-    
+
     return { positions, velocities };
   }, []);
 
@@ -42,8 +38,8 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
       mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
       mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouse]);
 
   // Animate particles and create connections
@@ -60,25 +56,16 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
     }
 
     // Mouse influence with gentler interaction
-    const mouseInfluence = new THREE.Vector3(
-      mouse.x * viewport.width / 2,
-      mouse.y * viewport.height / 2,
-      0
-    );
+    const mouseInfluence = new THREE.Vector3((mouse.x * viewport.width) / 2, (mouse.y * viewport.height) / 2, 0);
 
     // Update particle positions with organic movement
     for (let i = 0; i < particleCount; i++) {
-      // Calculate distance to mouse
-      const particlePos = new THREE.Vector3(
-        positions[i * 3],
-        positions[i * 3 + 1],
-        positions[i * 3 + 2]
-      );
-      
+      const particlePos = new THREE.Vector3(positions[i * 3], positions[i * 3 + 1], positions[i * 3 + 2]);
+
       const distance = particlePos.distanceTo(mouseInfluence);
       const maxDistance = 2.5;
-      
-      // Apply gentle mouse attraction (not repulsion)
+
+      // Gentle mouse attraction
       if (distance < maxDistance) {
         const force = (1 - distance / maxDistance) * 0.02;
         const direction = mouseInfluence.clone().sub(particlePos).normalize();
@@ -86,21 +73,21 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
         positions[i * 3 + 1] += direction.y * force;
       }
 
-      // Organic flowing movement with sine waves
+      // Organic flowing movement
       const flowX = Math.sin(time * 0.3 + i * 0.1) * 0.002;
       const flowY = Math.cos(time * 0.25 + i * 0.15) * 0.002;
-      
+
       positions[i * 3] += particles.velocities[i * 3] + flowX;
       positions[i * 3 + 1] += particles.velocities[i * 3 + 1] + flowY;
       positions[i * 3 + 2] += particles.velocities[i * 3 + 2];
 
-      // Boundary check and bounce
+      // Boundary check
       if (Math.abs(positions[i * 3]) > 4) particles.velocities[i * 3] *= -1;
       if (Math.abs(positions[i * 3 + 1]) > 3) particles.velocities[i * 3 + 1] *= -1;
       if (Math.abs(positions[i * 3 + 2]) > 2) particles.velocities[i * 3 + 2] *= -1;
     }
 
-    // Create connections between nearby particles with distance-based opacity
+    // Create line connections between nearby particles
     for (let i = 0; i < particleCount; i++) {
       for (let j = i + 1; j < particleCount; j++) {
         const dx = positions[i * 3] - positions[j * 3];
@@ -115,32 +102,32 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
             positions[i * 3 + 2],
             positions[j * 3],
             positions[j * 3 + 1],
-            positions[j * 3 + 2]
+            positions[j * 3 + 2],
           );
         }
       }
     }
 
     ref.current.geometry.attributes.position.needsUpdate = true;
-    
-    // Update line connections
+
+    // Update line geometry
     const lineGeometry = new THREE.BufferGeometry();
-    lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+    lineGeometry.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
     lineRef.current.geometry = lineGeometry;
 
-    // Gentle pulsing opacity with progressive fade-in
+    // Gentle opacity pulse
     const baseOpacity = animationProgress * 0.5;
     const pulseOpacity = baseOpacity + Math.sin(time * 0.5) * 0.2 * animationProgress;
     if (lineRef.current.material) {
       (lineRef.current.material as THREE.LineBasicMaterial).opacity = pulseOpacity;
     }
-    
-    // Progressive particle opacity
+
+    // Particle opacity
     if (ref.current.material) {
       (ref.current.material as THREE.PointsMaterial).opacity = 0.9 * animationProgress;
     }
 
-    // Very slow organic rotation
+    // Subtle rotation
     ref.current.rotation.y = time * 0.03;
     lineRef.current.rotation.y = time * 0.03;
   });
@@ -150,16 +137,17 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
       <Points ref={ref} positions={particles.positions} stride={3}>
         <PointMaterial
           transparent
-          color="#A8C6D8"
+          color="#90B5C9"
           size={0.12}
-          sizeAttenuation={true}
+          sizeAttenuation
           depthWrite={false}
           opacity={0.9}
           blending={THREE.AdditiveBlending}
         />
       </Points>
+
       <lineSegments ref={lineRef}>
-        <lineBasicMaterial color="#A8C6D8" transparent opacity={0.6} />
+        <lineBasicMaterial color="#8CAFC3" transparent opacity={0.75} />
       </lineSegments>
     </>
   );
@@ -176,12 +164,7 @@ export default function NetworkEffect({ startAnimation }: NetworkEffectProps) {
         <ambientLight intensity={0.5} />
         <NetworkParticles startAnimation={startAnimation} />
         <EffectComposer>
-          <Bloom 
-            intensity={2.0} 
-            luminanceThreshold={0.15} 
-            luminanceSmoothing={0.9}
-            radius={1.0}
-          />
+          <Bloom intensity={0.5} luminanceThreshold={0.8} luminanceSmoothing={0.6} radius={0.6} />
         </EffectComposer>
       </Canvas>
     </div>
