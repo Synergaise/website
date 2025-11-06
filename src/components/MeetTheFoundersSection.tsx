@@ -1,5 +1,5 @@
 import judePhoto from '@/assets/IMG_2221.jpg';
-import bertiePlaceholder from '@/assets/bertie-placeholder.png';
+import bertiePhoto from '@/assets/bertie-photo.png';
 import { motion } from 'framer-motion';
 export default function MeetTheFoundersSection() {
   return <section id='founders' className='bg-muted/30 py-24 px-6 flex flex-col items-center text-center rounded-[24px] max-w-7xl mx-auto my-16'>
@@ -43,7 +43,7 @@ export default function MeetTheFoundersSection() {
         duration: 0.6,
         delay: 0.2
       }}>
-          <img src={bertiePlaceholder} alt='Bertie Ross, Co-Founder of Synergaise' className='w-64 h-64 object-cover rounded-[16px] shadow-md mb-6 opacity-80' />
+          <img src={bertiePhoto} alt='Bertie Ross, Co-Founder of Synergaise' className='w-64 h-64 object-cover rounded-[16px] shadow-md mb-6' />
           <h3 className='text-xl font-semibold text-foreground'>Bertie Ross</h3>
           <p className='text-sm text-muted-foreground'>Co-Founder, Synergaise</p>
         </motion.div>
