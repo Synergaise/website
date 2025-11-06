@@ -1,25 +1,25 @@
 import clayLogo from "@/assets/clay-logo-black.png";
-import makeLogo from "@/assets/make-logo.webp";
+import makeLogo from "@/assets/make-logo-black.webp";
 import n8nLogo from "@/assets/n8n-logo-black.png";
 import claudeLogo from "@/assets/claude-logo-black.png";
 import cursorLogo from "@/assets/cursor-logo-black.png";
 import lovableLogo from "@/assets/lovable-logo-black.png";
 import openaiLogo from "@/assets/openai-logo-black.png";
 import supabaseLogo from "@/assets/supabase-logo-black.png";
-import vapiLogo from "@/assets/vapi-logo.png";
+import vapiLogo from "@/assets/vapi-logo-new.png";
 import elevenlabsLogo from "@/assets/elevenlabs-logo.png";
 
 const platformLogos: Record<string, { src: string; height: string }> = {
-  Make: { src: makeLogo, height: "h-8" },
-  Clay: { src: clayLogo, height: "h-12" },
+  Make: { src: makeLogo, height: "h-10" },
+  Clay: { src: clayLogo, height: "h-10" },
   n8n: { src: n8nLogo, height: "h-10" },
-  Claude: { src: claudeLogo, height: "h-16" },
-  Cursor: { src: cursorLogo, height: "h-8" },
-  Lovable: { src: lovableLogo, height: "h-16" },
-  OpenAI: { src: openaiLogo, height: "h-8" },
-  Supabase: { src: supabaseLogo, height: "h-8" },
+  Claude: { src: claudeLogo, height: "h-10" },
+  Cursor: { src: cursorLogo, height: "h-10" },
+  Lovable: { src: lovableLogo, height: "h-10" },
+  OpenAI: { src: openaiLogo, height: "h-10" },
+  Supabase: { src: supabaseLogo, height: "h-10" },
   Vapi: { src: vapiLogo, height: "h-10" },
-  ElevenLabs: { src: elevenlabsLogo, height: "h-8" },
+  ElevenLabs: { src: elevenlabsLogo, height: "h-10" },
 };
 
 const platforms = ["Make", "Clay", "Claude", "n8n", "Cursor", "Lovable", "OpenAI", "Supabase", "Vapi", "ElevenLabs"];
