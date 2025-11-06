@@ -44,46 +44,89 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Synergaise Brand Colors */
-    --black: 0 0% 5.5%;
-    --graphite: 0 0% 17%;
-    --cool-gray: 0 0% 69%;
-    --off-white: 0 0% 96.5%;
-    --electric-blue: 214 100% 57%;
-    --silver: 0 0% 85%;
+    /* Synergaise Design System - Light Mode */
+    --background: 40 20% 96.5%;
+    --background-secondary: 40 8% 92.4%;
+    --foreground: 0 0% 11%;
+    --foreground-secondary: 0 0% 33.3%;
     
-    /* Semantic Tokens */
-    --background: 0 0% 5.5%;
-    --foreground: 0 0% 96.5%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
     
-    --card: 0 0% 17%;
-    --card-foreground: 0 0% 96.5%;
+    --primary: 222 100% 58.6%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 221 71.4% 46.7%;
     
-    --primary: 214 100% 57%;
-    --primary-foreground: 0 0% 96.5%;
+    --secondary: 0 0% 92.4%;
+    --secondary-foreground: 0 0% 11%;
     
-    --secondary: 0 0% 17%;
-    --secondary-foreground: 0 0% 96.5%;
+    --muted: 40 8% 92.4%;
+    --muted-foreground: 0 0% 33.3%;
     
-    --muted: 0 0% 17%;
-    --muted-foreground: 0 0% 69%;
+    --accent: 222 100% 58.6%;
+    --accent-foreground: 0 0% 100%;
     
-    --accent: 214 100% 57%;
-    --accent-foreground: 0 0% 96.5%;
+    --border: 40 8% 92.4%;
+    --input: 40 8% 92.4%;
+    --ring: 222 100% 58.6%;
     
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --ring: 214 100% 57%;
+    --surface-tint: 221 100% 95.7%;
+    --highlight-glow: 222 100% 58.6%;
     
     --radius: 0.75rem;
     
     /* Gradients */
-    --gradient-orbital: linear-gradient(135deg, hsl(214 100% 57% / 0.1), hsl(214 100% 57% / 0.05));
-    --gradient-card: linear-gradient(135deg, hsl(0 0% 17% / 0.6), hsl(0 0% 17% / 0.3));
+    --gradient-orbital: linear-gradient(135deg, hsl(222 100% 58.6% / 0.1), hsl(222 100% 58.6% / 0.05));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8), hsl(0 0% 100% / 0.6));
+    --gradient-section: linear-gradient(180deg, hsl(40 20% 96.5%), hsl(40 8% 92.4%));
     
-    /* Glows */
-    --glow-orbital: 0 0 60px hsl(214 100% 57% / 0.3);
-    --glow-card: 0 4px 30px hsl(0 0% 0% / 0.5);
+    /* Glows & Shadows */
+    --glow-orbital: 0 0 60px hsl(222 100% 58.6% / 0.3);
+    --glow-card: 0 4px 14px hsl(222 100% 58.6% / 0.08);
+    --glow-hover: 0 0 8px hsl(222 100% 58.6% / 0.35);
+    --shadow-primary: 0 2px 12px hsl(222 100% 58.6% / 0.25);
+  }
+  
+  .dark {
+    /* Synergaise Design System - Dark Mode */
+    --background: 0 0% 5.5%;
+    --background-secondary: 0 0% 10.2%;
+    --foreground: 0 0% 100%;
+    --foreground-secondary: 0 0% 74.9%;
+    
+    --card: 0 0% 10.2%;
+    --card-foreground: 0 0% 100%;
+    
+    --primary: 222 100% 58.6%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 219 100% 65.7%;
+    
+    --secondary: 0 0% 10.2%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 0 0% 10.2%;
+    --muted-foreground: 0 0% 74.9%;
+    
+    --accent: 222 100% 58.6%;
+    --accent-foreground: 0 0% 100%;
+    
+    --border: 0 0% 10.2%;
+    --input: 0 0% 10.2%;
+    --ring: 222 100% 58.6%;
+    
+    --surface-tint: 0 0% 10.2%;
+    --highlight-glow: 222 100% 58.6%;
+    
+    /* Gradients */
+    --gradient-orbital: linear-gradient(135deg, hsl(222 100% 58.6% / 0.15), hsl(222 100% 58.6% / 0.08));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 10.2% / 0.8), hsl(0 0% 10.2% / 0.6));
+    --gradient-section: linear-gradient(180deg, hsl(0 0% 5.5%), hsl(0 0% 10.2%));
+    
+    /* Glows & Shadows */
+    --glow-orbital: 0 0 60px hsl(222 100% 58.6% / 0.3);
+    --glow-card: 0 4px 14px hsl(222 100% 58.6% / 0.15);
+    --glow-hover: 0 0 8px hsl(222 100% 58.6% / 0.35);
+    --shadow-primary: 0 2px 12px hsl(222 100% 58.6% / 0.25);
   }
 }
 

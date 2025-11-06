@@ -29,11 +29,18 @@ export default {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          secondary: "hsl(var(--background-secondary))",
+        },
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          secondary: "hsl(var(--foreground-secondary))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -51,12 +58,8 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        black: "hsl(var(--black))",
-        graphite: "hsl(var(--graphite))",
-        "cool-gray": "hsl(var(--cool-gray))",
-        "off-white": "hsl(var(--off-white))",
-        "electric-blue": "hsl(var(--electric-blue))",
-        silver: "hsl(var(--silver))",
+        "surface-tint": "hsl(var(--surface-tint))",
+        "highlight-glow": "hsl(var(--highlight-glow))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -66,10 +69,13 @@ export default {
       backgroundImage: {
         'gradient-orbital': 'var(--gradient-orbital)',
         'gradient-card': 'var(--gradient-card)',
+        'gradient-section': 'var(--gradient-section)',
       },
       boxShadow: {
         'glow-orbital': 'var(--glow-orbital)',
         'glow-card': 'var(--glow-card)',
+        'glow-hover': 'var(--glow-hover)',
+        'primary': 'var(--shadow-primary)',
       },
       keyframes: {
         "orbital-glow": {
