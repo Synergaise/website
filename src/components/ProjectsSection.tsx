@@ -44,11 +44,9 @@ const ProjectsSection = () => {
 
   useEffect(() => {
     if (isPaused) return;
-
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 6500);
-
     return () => clearInterval(interval);
   }, [isPaused]);
 
@@ -56,31 +54,24 @@ const ProjectsSection = () => {
     const total = testimonials.length;
     const diff = (index - activeIndex + total) % total;
 
-    // Calculate position in a wheel
     const angle = (diff * 360) / total;
     const radius = 280;
-
-    // Calculate x and y positions for circular arrangement
     const x = Math.sin((angle * Math.PI) / 180) * radius;
     const y = (-Math.cos((angle * Math.PI) / 180) * radius) / 2;
 
-    // Scale and opacity based on position
     let scale = 1;
     let opacity = 1;
     let zIndex = 10;
 
     if (diff === 0) {
-      // Active card - center front
       scale = 1.1;
       opacity = 1;
       zIndex = 30;
     } else if (diff === 1 || diff === total - 1) {
-      // Adjacent cards
       scale = 0.85;
       opacity = 0.6;
       zIndex = 20;
     } else {
-      // Background cards
       scale = 0.7;
       opacity = 0.3;
       zIndex = 10;
@@ -117,15 +108,19 @@ const ProjectsSection = () => {
               className="absolute transition-all duration-1000 ease-out w-full max-w-md"
               style={getCardStyle(index)}
             >
-              <div className="p-8 bg-gradient-to-b from-[#B68A74] to-[#BBA99E] text-white rounded-[18px] shadow-lg transition-all duration-300 ease-in-out space-y-6 backdrop-blur-sm">
-                <div className="text-4xl text-primary leading-none">"</div>
-                <blockquote className="text-base text-foreground leading-relaxed line-clamp-6">
-                  {testimonial.quote}
-                </blockquote>
+              <div
+                className="p-8 rounded-[18px] shadow-lg transition-all duration-300 ease-in-out space-y-6 backdrop-blur-sm"
+                style={{
+                  background: "linear-gradient(180deg, #E9E6DF 0%, #E5E2DA 100%)",
+                  color: "#1E1E1E",
+                }}
+              >
+                <div className="text-4xl leading-none text-[#A8C6D8]">"</div>
+                <blockquote className="text-base leading-relaxed line-clamp-6">{testimonial.quote}</blockquote>
                 <div className="space-y-1 pt-4">
-                  <p className="text-sm font-accent font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                  <p className="text-sm font-accent font-semibold">{testimonial.author}</p>
+                  <p className="text-sm text-gray-700">{testimonial.role}</p>
+                  <p className="text-sm text-gray-700">{testimonial.company}</p>
                 </div>
               </div>
             </div>
@@ -138,7 +133,7 @@ const ProjectsSection = () => {
                 key={index}
                 onClick={() => setActiveIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === activeIndex ? "bg-primary w-8" : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+                  index === activeIndex ? "bg-[#A8C6D8] w-8" : "bg-gray-400/40 hover:bg-gray-500/50"
                 }`}
               />
             ))}
