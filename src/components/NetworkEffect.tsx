@@ -1,7 +1,6 @@
 import { useRef, useMemo, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import * as THREE from "three";
 
 interface NetworkParticlesProps {
@@ -104,15 +103,12 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
     lineGeometry.setAttribute("position", new THREE.Float32BufferAttribute(linePositions, 3));
     lineRef.current.geometry = lineGeometry;
 
-    const baseOpacity = animationProgress * 0.6;
-    const pulseOpacity = baseOpacity + Math.sin(time * 0.8) * 0.15 * animationProgress;
-
     if (lineRef.current.material) {
-      (lineRef.current.material as THREE.LineBasicMaterial).opacity = pulseOpacity;
+      (lineRef.current.material as THREE.LineBasicMaterial).opacity = 0.8;
     }
 
     if (ref.current.material) {
-      (ref.current.material as THREE.PointsMaterial).opacity = 0.95 * animationProgress;
+      (ref.current.material as THREE.PointsMaterial).opacity = 1.0;
     }
 
     ref.current.rotation.y = time * 0.03;
@@ -125,19 +121,19 @@ function NetworkParticles({ startAnimation }: NetworkParticlesProps) {
       <Points ref={ref} positions={particles.positions} stride={3}>
         <PointMaterial
           transparent
-          color="#A8C6D8" // soft coastal blue for nodes
-          size={0.13}
+          color="#6C9CB3" // darker coastal blue nodes
+          size={0.16}
           sizeAttenuation
           depthWrite={false}
-          opacity={0.95}
-          blending={THREE.AdditiveBlending}
+          opacity={1.0}
         />
       </Points>
 
-      {/* Links */}
+      {/* Connections */}
       <lineSegments ref={lineRef}>
         <lineBasicMaterial
-          color="#8FB9CB" // slightly darker coastal blue for contrast
+          color="#88B2C6" // slightly lighter blue for connecting lines
+          linewidth={1.5} // thicker line for clarity
           transparent
           opacity={0.8}
         />
@@ -154,11 +150,8 @@ export default function NetworkEffect({ startAnimation }: NetworkEffectProps) {
   return (
     <div className="absolute right-0 top-0 bottom-0 w-[60%] h-full">
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-        <ambientLight intensity={0.6} />
+        <ambientLight intensity={0.5} />
         <NetworkParticles startAnimation={startAnimation} />
-        <EffectComposer>
-          <Bloom intensity={1.2} luminanceThreshold={0} luminanceSmoothing={0.9} radius={0.8} />
-        </EffectComposer>
       </Canvas>
     </div>
   );
