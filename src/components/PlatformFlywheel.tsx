@@ -11,7 +11,7 @@ import elevenlabsLogo from "@/assets/elevenlabs-logo.png";
 
 const platformLogos: Record<string, { src: string; height: string }> = {
   Make: { src: makeLogo, height: "h-10" },
-  Clay: { src: clayLogo, height: "h-11" },
+  Clay: { src: clayLogo, height: "h-12" },
   n8n: { src: n8nLogo, height: "h-10" },
   Claude: { src: claudeLogo, height: "h-10" },
   Cursor: { src: cursorLogo, height: "h-10" },
