@@ -117,7 +117,7 @@ const ProjectsSection = () => {
               className="absolute transition-all duration-1000 ease-out w-full max-w-md"
               style={getCardStyle(index)}
             >
-              <div className="p-8 bg-[#B68A74] hover:bg-[#BBA99E] text-white border-none rounded-[18px] shadow-lg transition-all duration-300 ease-in-out space-y-6 backdrop-blur-sm">
+              <div className="p-8 bg-gradient-to-b from-[#B68A74] to-[#BBA99E] text-white rounded-[18px] shadow-lg transition-all duration-300 ease-in-out space-y-6 backdrop-blur-sm">
                 <div className="text-4xl text-primary leading-none">"</div>
                 <blockquote className="text-base text-foreground leading-relaxed line-clamp-6">
                   {testimonial.quote}
