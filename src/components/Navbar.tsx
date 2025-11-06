@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-heading font-bold text-foreground hover:text-primary transition-colors">
-            SYNERG<span className="italic">AI</span>SE
+            SYNERG<span className="italic pr-[1.5px]">AI</span>SE
           </Link>
 
           {/* Desktop Navigation */}
