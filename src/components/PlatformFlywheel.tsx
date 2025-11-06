@@ -78,7 +78,7 @@ const PlatformFlywheel = () => {
       />
 
       {/* Inline animation style */}
-      <style jsx>{`
+      <style>{`
         @keyframes marquee {
           0% {
             transform: translateX(0);
