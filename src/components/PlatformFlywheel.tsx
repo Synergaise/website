@@ -28,7 +28,7 @@ const PlatformFlywheel = () => {
   return (
     <section
       id="powered-by"
-      className="relative py-20 px-6 flex flex-col items-center justify-center text-center rounded-[36px] mx-auto max-w-7xl my-20 shadow-sm"
+      className="relative py-20 px-6 flex flex-col items-center justify-center text-center rounded-[36px] mx-auto max-w-7xl shadow-sm"
       style={{
         background: "linear-gradient(180deg, #E9E6DF 0%, #E5E2DA 100%)",
         border: "1px solid rgba(0,0,0,0.05)",
