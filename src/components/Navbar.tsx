@@ -22,13 +22,14 @@ const Navbar = () => {
   const logoY = -18; // half of h-9 (36px)
 
   const scrollToSection = (sectionId: string) => {
+    setMobileMenuOpen(false);
     if (location.pathname !== "/") {
+      // Navigate to home page with hash, then scroll after page loads
       window.location.href = `/#${sectionId}`;
     } else {
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
-    setMobileMenuOpen(false);
   };
 
   const scrollToTop = () => {

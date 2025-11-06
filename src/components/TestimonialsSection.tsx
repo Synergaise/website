@@ -33,17 +33,18 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="p-8 bg-[hsl(var(--accent-brown))] rounded-lg space-y-6 hover:shadow-[0_4px_20px_rgba(182,138,116,0.25)] hover:bg-[#BBA99E] transition-all duration-300"
+              className="p-8 rounded-lg space-y-6 hover:shadow-[0_4px_20px_rgba(214,234,223,0.4)] transition-all duration-300"
+              style={{ backgroundColor: '#D6EADF' }}
             >
-              <div className="text-3xl text-white">"</div>
-              <blockquote className="text-xl md:text-2xl font-heading font-bold leading-[1.3] text-white">
+              <div className="text-3xl" style={{ color: '#90B5C9' }}>"</div>
+              <blockquote className="text-xl md:text-2xl font-heading font-bold leading-[1.3]" style={{ color: '#0E0E0E' }}>
                 {testimonial.quote}
               </blockquote>
               <div className="space-y-1">
-                <p className="text-sm font-accent text-white">
+                <p className="text-sm font-accent" style={{ color: '#0E0E0E' }}>
                   {testimonial.author}
                 </p>
-                <p className="text-sm text-white/80">
+                <p className="text-sm" style={{ color: '#0E0E0E', opacity: 0.7 }}>
                   {testimonial.company}
                 </p>
               </div>

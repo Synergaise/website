@@ -126,7 +126,7 @@ const Contact = () => {
                 variant="outline"
                 size="lg"
                 className="font-heading font-bold uppercase text-sm tracking-wider px-8 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-                onClick={() => window.open("https://calendly.com", "_blank")}
+                onClick={() => window.open("https://cal.com/jude-hill-a6kiig/discovery?overlayCalendar=true", "_blank")}
               >
                 Book a Discovery Call
               </Button>
