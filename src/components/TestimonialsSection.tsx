@@ -6,8 +6,8 @@ const testimonials = [
   },
   {
     quote: "98% campaign delivery rate",
-    author: "Marketing Lead",
-    company: "B2B SaaS Client",
+    author: "Founder",
+    company: "Social Media Marketing Agency",
   },
   {
     quote: "Scaled outreach efficiency by 3×",
