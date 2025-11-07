@@ -10,14 +10,14 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      {/* Smooth off-white fade-in overlay */}
+    <div className="min-h-screen bg-[#F4F2EC]">
+      {/* Off-white overlay without black fade */}
       <motion.div
         initial={{ opacity: 1, backgroundColor: "#F4F2EC" }}
         animate={{ opacity: 0 }}
         transition={{
-          duration: 1.6,
-          ease: [0.25, 0.1, 0.25, 1], // smooth ease curve (easeInOut)
+          duration: 0.8,
+          ease: "easeInOut",
         }}
         className="fixed inset-0 z-[999] pointer-events-none"
       />
