@@ -5,7 +5,7 @@ const testimonials = [
     company: "Intelligent Repairs",
   },
   {
-    quote: "95% campaign delivery rate",
+    quote: "98% campaign delivery rate",
     author: "Marketing Lead",
     company: "B2B SaaS Client",
   },
