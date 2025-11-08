@@ -10,9 +10,9 @@ const testimonials = [
     company: "Social Media Marketing Agency",
   },
   {
-    quote: "Scaled outreach efficiency by 3×",
-    author: "Sales Manager",
-    company: "Enterprise Services",
+    quote: "Automated 400+ deal assessments across systems",
+    author: "Managing Director",
+    company: "Automotive Finance",
   },
 ];
 
@@ -34,19 +34,15 @@ const TestimonialsSection = () => {
             <div
               key={index}
               className="p-8 rounded-lg space-y-6 shadow-[0_4px_12px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.12)] transition-all duration-300"
-              style={{ backgroundColor: '#90B5C9' }}
+              style={{ backgroundColor: "#90B5C9" }}
             >
               <div className="text-3xl text-white">"</div>
               <blockquote className="text-xl md:text-2xl font-heading font-bold leading-[1.3] text-white">
                 {testimonial.quote}
               </blockquote>
               <div className="space-y-1">
-                <p className="text-sm font-accent text-white">
-                  {testimonial.author}
-                </p>
-                <p className="text-sm text-white/80">
-                  {testimonial.company}
-                </p>
+                <p className="text-sm font-accent text-white">{testimonial.author}</p>
+                <p className="text-sm text-white/80">{testimonial.company}</p>
               </div>
             </div>
           ))}
