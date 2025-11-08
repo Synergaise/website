@@ -1,8 +1,8 @@
 const testimonials = [
   {
-    quote: "Saved 120+ hours per month",
-    author: "Operations Director",
-    company: "Intelligent Repairs",
+    quote: "Automated 24/7 Google Ads lead follow-ups with tailored responses",
+    author: "Founder",
+    company: "Home Services",
   },
   {
     quote: "98% campaign delivery rate",
