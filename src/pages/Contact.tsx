@@ -13,14 +13,40 @@ const Contact = () => {
     company: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: "", email: "", company: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("https://synergaise.app.n8n.cloud/webhook-test/Website-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      toast({
+        title: "Message Sent",
+        description: "We'll get back to you within 24 hours.",
+      });
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -111,9 +137,10 @@ const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
+                disabled={isSubmitting}
                 className="w-full font-heading font-bold uppercase text-sm tracking-wider"
               >
-                Submit
+                {isSubmitting ? "Sending..." : "Submit"}
               </Button>
             </form>
 
