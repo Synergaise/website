@@ -51,8 +51,10 @@ const ServicesSection = () => {
             </div>)}
         </div>
 
-        <div className="text-center mt-12">
-          
+        <div className="text-center mt-16 max-w-4xl mx-auto">
+          <p className="text-base md:text-lg leading-relaxed text-foreground">
+            At Synergaise, we build custom-tailored solutions designed around your exact workflows and challenges. Every system starts with understanding, we work closely with you and your end users to map how your business truly operates, identify bottlenecks, and design automation that feels natural. Our approach combines clarity, collaboration, and precision to ensure each solution is intuitive, scalable, and genuinely useful from day one.
+          </p>
         </div>
       </div>
     </section>;
