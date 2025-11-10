@@ -42,6 +42,7 @@ const ProjectsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [touchStart, setTouchStart] = useState(0);
+  const [isSwiping, setIsSwiping] = useState(false);
 
   useEffect(() => {
     if (isPaused) return;
@@ -53,14 +54,18 @@ const ProjectsSection = () => {
   
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.touches[0].clientX);
+    setIsSwiping(false);
   };
   
   const handleTouchMove = (e: React.TouchEvent) => {
+    if (isSwiping) return; // Prevent multiple swipes
+    
     const touchEnd = e.touches[0].clientX;
     const diff = touchStart - touchEnd;
     
     // Swipe left to go next, swipe right to go previous
-    if (Math.abs(diff) > 50) {
+    if (Math.abs(diff) > 80) {
+      setIsSwiping(true);
       if (diff > 0) {
         // Swipe left - next
         setActiveIndex((prev) => (prev + 1) % testimonials.length);
@@ -69,8 +74,15 @@ const ProjectsSection = () => {
         setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
       }
       setIsPaused(true);
-      setTimeout(() => setIsPaused(false), 3000);
+      setTimeout(() => {
+        setIsPaused(false);
+        setIsSwiping(false);
+      }, 1500);
     }
+  };
+  
+  const handleTouchEnd = () => {
+    setTouchStart(0);
   };
 
   const getCardStyle = (index: number) => {
@@ -126,6 +138,7 @@ const ProjectsSection = () => {
           onMouseLeave={() => setIsPaused(false)}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
           {testimonials.map((testimonial, index) => (
             <div

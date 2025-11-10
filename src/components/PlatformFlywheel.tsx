@@ -51,7 +51,7 @@ const PlatformFlywheel = () => {
   return (
     <section
       id="powered-by"
-      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 flex flex-col items-center justify-center text-center rounded-[24px] sm:rounded-[36px] mx-auto max-w-7xl shadow-sm"
+      className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 flex flex-col items-center justify-center text-center rounded-[24px] sm:rounded-[36px] mx-auto w-full shadow-sm"
       style={{
         background: "linear-gradient(180deg, #E9E6DF 0%, #E5E2DA 100%)",
         border: "1px solid rgba(0,0,0,0.05)",
@@ -67,7 +67,7 @@ const PlatformFlywheel = () => {
         }}
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="w-full mx-auto relative z-10 max-w-6xl">
         <p className="text-center font-heading font-bold text-sm sm:text-base uppercase tracking-[0.12em] text-[#1E1E1E] mb-8 sm:mb-10 md:mb-12">
           Powered by Leading Platforms
         </p>
