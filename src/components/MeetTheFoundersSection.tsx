@@ -43,7 +43,7 @@ export default function MeetTheFoundersSection() {
         duration: 0.6,
         delay: 0.2
       }}>
-          <img src={bertiePhoto} alt='Bertie Ross, Co-Founder of Synergaise' className='w-64 h-64 object-cover rounded-[16px] shadow-md mb-6' />
+          <img src={bertiePhoto} alt='Bertie Ross, Co-Founder of Synergaise' className='w-64 h-64 object-cover object-center scale-150 rounded-[16px] shadow-md mb-6' />
           <h3 className='text-xl font-semibold text-foreground'>Bertie Ross</h3>
           <p className='text-sm text-muted-foreground'>Co-Founder, Synergaise</p>
         </motion.div>
