@@ -1,5 +1,5 @@
 import judePhoto from '@/assets/IMG_2221.jpg';
-import bertiePhoto from '@/assets/bertie-photo.png';
+import bertiePhoto from '@/assets/bertie-photo-new.png';
 import { motion } from 'framer-motion';
 export default function MeetTheFoundersSection() {
   return <section id='founders' className='bg-muted/30 py-24 px-6 flex flex-col items-center text-center rounded-[24px] max-w-7xl mx-auto my-16'>
