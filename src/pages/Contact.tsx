@@ -20,7 +20,7 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("https://synergaise.app.n8n.cloud/webhook-test/Website-contact", {
+      const response = await fetch("https://synergaise.app.n8n.cloud/webhook/Website-contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
