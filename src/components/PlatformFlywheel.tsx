@@ -8,6 +8,7 @@ import openaiLogo from "@/assets/openai-logo-black.png";
 import supabaseLogo from "@/assets/supabase-logo-black.png";
 import vapiLogo from "@/assets/vapi-logo-new.png";
 import elevenlabsLogo from "@/assets/elevenlabs-logo.png";
+import { useState } from "react";
 
 const platformLogos: Record<string, { src: string; height: string }> = {
   Make: { src: makeLogo, height: "h-7 sm:h-8 md:h-10" },
@@ -25,6 +26,28 @@ const platformLogos: Record<string, { src: string; height: string }> = {
 const platforms = ["Make", "Clay", "Claude", "n8n", "Cursor", "Lovable", "OpenAI", "Supabase", "Vapi", "ElevenLabs"];
 
 const PlatformFlywheel = () => {
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touchEnd = e.touches[0].clientX;
+    const diff = Math.abs(touchStart - touchEnd);
+    
+    // If user swiped more than 50px, pause the animation
+    if (diff > 50) {
+      setIsPaused(true);
+    }
+  };
+  
+  const handleTouchEnd = () => {
+    // Resume animation after 2 seconds
+    setTimeout(() => setIsPaused(false), 2000);
+  };
+
   return (
     <section
       id="powered-by"
@@ -50,12 +73,17 @@ const PlatformFlywheel = () => {
         </p>
 
         {/* Infinite scrolling carousel */}
-        <div className="relative overflow-hidden h-16 sm:h-20 md:h-24 flex items-center">
+        <div 
+          className="relative overflow-hidden h-16 sm:h-20 md:h-24 flex items-center"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {/* Edge fades */}
           <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 bg-gradient-to-r from-[#E9E6DF] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 bg-gradient-to-l from-[#E9E6DF] to-transparent z-10 pointer-events-none" />
 
-          <div className="flex gap-8 sm:gap-10 md:gap-12 animate-marquee will-change-transform items-center">
+          <div className={`flex gap-8 sm:gap-10 md:gap-12 animate-marquee will-change-transform items-center ${isPaused ? 'paused' : ''}`}>
             {[...platforms, ...platforms].map((platform, index) => (
               <div key={index} className="flex-shrink-0 flex items-center justify-center min-w-[80px] sm:min-w-[100px] md:min-w-[120px]">
                 <img
@@ -91,6 +119,9 @@ const PlatformFlywheel = () => {
           display: flex;
           width: 200%;
           animation: marquee 25s linear infinite;
+        }
+        .animate-marquee.paused {
+          animation-play-state: paused;
         }
         .animate-marquee:hover {
           animation-play-state: paused;

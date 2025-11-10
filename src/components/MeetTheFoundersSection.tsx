@@ -2,7 +2,7 @@ import judePhoto from '@/assets/IMG_2221.jpg';
 import bertiePhoto from '@/assets/bertie-photo-new.png';
 import { motion } from 'framer-motion';
 export default function MeetTheFoundersSection() {
-  return <section id='founders' className='bg-muted/30 py-12 sm:py-20 px-4 sm:px-6 flex flex-col items-center text-center rounded-[24px] max-w-7xl mx-auto my-16'>
+  return <section id='founders' className='bg-muted/30 py-12 sm:py-16 px-4 sm:px-6 flex flex-col items-center text-center rounded-[24px] max-w-7xl mx-auto my-8 sm:my-12'>
       <motion.h2 className='text-3xl md:text-4xl font-heading font-bold mb-12 text-foreground' initial={{
       opacity: 0,
       y: 20

@@ -13,7 +13,7 @@ const Index = () => {
     <div className="min-h-screen bg-[#F4F2EC]">
       <Navbar />
       <Hero />
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 my-8 sm:my-12">
         <PlatformFlywheel />
       </div>
       <QuoteSection />

@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const testimonials = [
   {
     quote: "Automated 24/7 Google Ads lead follow-ups with tailored responses",
@@ -17,8 +19,29 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.touches[0].clientX);
+  };
+  
+  const handleTouchEnd = () => {
+    // Can be extended for swipe navigation if needed
+    setTouchStart(0);
+    setTouchEnd(0);
+  };
+
   return (
-    <section className="py-32">
+    <section className="py-16 sm:py-24 lg:py-32"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl lg:text-[42px] font-heading font-bold leading-[1.2] tracking-tight">

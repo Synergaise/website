@@ -41,6 +41,7 @@ const testimonials = [
 const ProjectsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
 
   useEffect(() => {
     if (isPaused) return;
@@ -49,6 +50,28 @@ const ProjectsSection = () => {
     }, 6500);
     return () => clearInterval(interval);
   }, [isPaused]);
+  
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.touches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touchEnd = e.touches[0].clientX;
+    const diff = touchStart - touchEnd;
+    
+    // Swipe left to go next, swipe right to go previous
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe left - next
+        setActiveIndex((prev) => (prev + 1) % testimonials.length);
+      } else {
+        // Swipe right - previous
+        setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+      }
+      setIsPaused(true);
+      setTimeout(() => setIsPaused(false), 3000);
+    }
+  };
 
   const getCardStyle = (index: number) => {
     const total = testimonials.length;
@@ -85,7 +108,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="reviews" className="py-32 relative overflow-hidden">
+    <section id="reviews" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-graphite/10 to-transparent" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
@@ -101,6 +124,8 @@ const ProjectsSection = () => {
           className="relative h-[600px] md:h-[700px] w-full max-w-5xl mx-auto flex items-center justify-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
         >
           {testimonials.map((testimonial, index) => (
             <div
