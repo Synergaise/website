@@ -50,12 +50,12 @@ const PlatformFlywheel = () => {
         </p>
 
         {/* Infinite scrolling carousel */}
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden h-16 sm:h-20 md:h-24 flex items-center">
           {/* Edge fades */}
           <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 bg-gradient-to-r from-[#E9E6DF] to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 md:w-32 bg-gradient-to-l from-[#E9E6DF] to-transparent z-10 pointer-events-none" />
 
-          <div className="flex gap-8 sm:gap-10 md:gap-12 animate-marquee will-change-transform">
+          <div className="flex gap-8 sm:gap-10 md:gap-12 animate-marquee will-change-transform items-center">
             {[...platforms, ...platforms].map((platform, index) => (
               <div key={index} className="flex-shrink-0 flex items-center justify-center min-w-[80px] sm:min-w-[100px] md:min-w-[120px]">
                 <img
