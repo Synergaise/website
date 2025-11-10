@@ -39,7 +39,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo - Left Corner */}
           <Link to="/" onClick={scrollToTop} className="relative flex items-center group">
@@ -113,8 +113,8 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden mt-4 pt-4 border-t border-border/50">
-          <div className="flex flex-col gap-4">
+        <div className="md:hidden mt-4 pt-4 border-t border-border/50 animate-fade-in">
+          <div className="flex flex-col gap-4 px-4">
             <Link
               to="/"
               onClick={scrollToTop}

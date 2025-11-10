@@ -29,7 +29,7 @@ const Hero = () => {
     }
   };
 
-  return <section className="relative min-h-screen flex items-center overflow-hidden pt-20 bg-background">
+  return <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 bg-background">
       {/* Black intro fade */}
       <div 
         className={`fixed inset-0 bg-black z-50 pointer-events-none transition-opacity duration-1000 ${
@@ -51,7 +51,7 @@ const Hero = () => {
       </div>
 
       {/* Left Side: Content */}
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div 
           className={`max-w-2xl space-y-8 transition-all duration-1000 transform ${
             showContent 
@@ -64,7 +64,7 @@ const Hero = () => {
         >
           {/* Headline */}
           <h1 
-            className="font-heading font-black text-6xl lg:text-7xl xl:text-[72px] leading-[1.05] tracking-[-0.02em] text-foreground"
+            className="font-heading font-black text-4xl sm:text-5xl lg:text-7xl xl:text-[72px] leading-[1.05] tracking-[-0.02em] text-foreground"
             style={{
               transition: 'transform 0.3s ease-out',
               transform: 'translateZ(0)',

@@ -22,7 +22,7 @@ const ServicesSection = () => {
       });
     }
   };
-  return <section id="services" className="py-32">
+  return <section id="services" className="py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl lg:text-[42px] font-heading font-bold leading-[1.2] tracking-tight">
@@ -34,7 +34,7 @@ const ServicesSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => <div key={index} className="group p-10 bg-gradient-to-br from-card/50 to-background border border-border/50 rounded-[18px] hover:border-primary/50 transition-all duration-[400ms] hover:scale-[1.03] hover:shadow-[0_6px_40px_rgba(41,121,255,0.25)] animate-fade-in" style={{
+          {services.map((service, index) => <div key={index} className="group p-6 sm:p-8 md:p-10 bg-gradient-to-br from-card/50 to-background border border-border/50 rounded-[18px] hover:border-primary/50 transition-all duration-[400ms] hover:scale-[1.03] hover:shadow-[0_6px_40px_rgba(41,121,255,0.25)] animate-fade-in" style={{
           animationDelay: `${index * 150}ms`
         }}>
               <div className="mb-6">
