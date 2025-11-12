@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-16 sm:py-24 lg:py-32"
+    <section className="py-8 sm:py-12 lg:py-16"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}

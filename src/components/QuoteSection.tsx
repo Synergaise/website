@@ -1,6 +1,6 @@
 const QuoteSection = () => {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 relative">
+    <section className="py-8 sm:py-12 lg:py-16 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-graphite/20 to-transparent" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6">

@@ -120,7 +120,7 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="reviews" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+    <section id="reviews" className="py-8 sm:py-12 lg:py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-graphite/10 to-transparent" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 space-y-4">
