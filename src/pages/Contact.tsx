@@ -61,7 +61,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="max-w-2xl mx-auto">
             {/* Header */}
-            <div className="text-center mb-12 space-y-4 animate-fade-in-up">
+            <div className="text-center mb-12 space-y-6 animate-fade-in-up">
               <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[72px] font-heading font-bold leading-[1.1] tracking-tight">
                 Let's build your system.
               </h1>
