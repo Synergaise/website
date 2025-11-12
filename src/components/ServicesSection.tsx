@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Brain, Network, GraduationCap, ArrowRight } from "lucide-react";
+import logoCircle from "@/assets/logo-circle.png";
 const services = [{
   icon: Brain,
   title: "AI Strategy Consulting",
@@ -53,7 +54,20 @@ const ServicesSection = () => {
 
         <div className="text-center mt-16 max-w-4xl mx-auto">
           <p className="text-base md:text-lg leading-relaxed text-foreground">
-            At Synergaise, we build custom-tailored solutions designed around your exact workflows and challenges. Every system starts with understanding, we work closely with you and your end users to map how your business truly operates, identify bottlenecks, and design automation that feels natural. Our approach combines clarity, collaboration, and precision to ensure each solution is intuitive, scalable, and genuinely useful from day one.
+            At <span className="inline-flex items-center gap-1.5 align-middle">
+              <img src={logoCircle} alt="SYNERGAISE" className="h-5 w-5 inline" />
+              <span className="font-bold">SYNERGAISE</span>
+            </span>, we build custom-tailored solutions designed around your exact workflows and challenges.
+            <br /><br />
+            Every system starts with a deep dive into understanding your business so
+            <br /><br />
+            we can work closely with you and your end users to map how your company truly operates.
+            <br /><br />
+            Identifying bottlenecks and designing automation that feels natural,
+            <br /><br />
+            our approach combines clarity, collaboration and precision to ensure each solution
+            <br /><br />
+            is intuitive, scalable, and genuinely useful from day one.
           </p>
         </div>
       </div>

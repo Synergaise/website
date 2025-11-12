@@ -11,7 +11,7 @@ const Footer = () => {
         {/* Company Name */}
         <div className="mb-12">
           <h3 className="text-6xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tight">
-            Synergaise LTD.
+            Synergaise <span className="font-light">Ltd.</span>
           </h3>
         </div>
 

@@ -20,14 +20,6 @@ const Hero = () => {
     };
   }, []);
 
-  const scrollToReviews = () => {
-    const element = document.getElementById("reviews");
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-  };
 
   return <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 bg-background">
       {/* Black intro fade */}
@@ -83,22 +75,13 @@ const Hero = () => {
             It's time to move from AI-Curious to <span className="text-primary">AI-Integrated</span>.
           </h1>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div 
-            className="flex flex-col sm:flex-row gap-4 pt-4"
+            className="pt-4"
             style={{
               transitionDelay: '200ms'
             }}
           >
-            <Button 
-              onClick={scrollToReviews} 
-              variant="outline" 
-              size="lg" 
-              className="font-heading font-bold text-base tracking-wide px-8 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-            >
-              Reviews
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
             <a href="https://cal.com/jude-hill-a6kiig/discovery" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="default" 

@@ -48,7 +48,7 @@ const ProjectsSection = () => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 6500);
+    }, 5000);
     return () => clearInterval(interval);
   }, [isPaused]);
   
