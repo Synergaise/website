@@ -111,7 +111,7 @@ const Mission = () => {
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
             {/* Left Column - Section Title */}
             <div className="lg:col-span-3 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold sticky top-32">Our Purpose</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold sticky top-32">Our Purpose</h2>
             </div>
 
             {/* Right Column - Content */}
