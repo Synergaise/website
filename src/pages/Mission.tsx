@@ -65,14 +65,16 @@ const Mission = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6 bg-background">
         <div className="container mx-auto max-w-5xl">
-          <div className="text-center space-y-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1] tracking-tight text-foreground mb-0">
-              Building intelligent systems
-            </h1>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1] tracking-tight text-foreground mt-0">
-              that think, adapt and last.
-            </h1>
-            <p className="text-xl md:text-2xl text-foreground-secondary max-w-3xl mx-auto leading-relaxed pt-4">
+          <div className="text-center animate-fade-in-up">
+            <div className="-space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-none tracking-tight text-foreground">
+                Building intelligent systems
+              </h1>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-none tracking-tight text-foreground">
+                that think, adapt and last.
+              </h1>
+            </div>
+            <p className="text-xl md:text-2xl text-foreground-secondary max-w-3xl mx-auto leading-relaxed pt-8">
               Synergaise builds AI systems that redefine how people create value — reliable, interpretable and built to
               scale.
             </p>
