@@ -95,7 +95,7 @@ const ServicesSection = () => {
               {/* Client Satisfaction */}
               <div className="text-center space-y-2 group cursor-default">
                 <div className="text-4xl md:text-5xl font-heading font-black text-primary group-hover:scale-110 transition-transform duration-300">
-                  5/5
+                  100%
                 </div>
                 <div className="text-sm md:text-base text-muted-foreground">
                   Client Satisfaction
