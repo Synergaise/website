@@ -118,7 +118,7 @@ const Mission = () => {
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
             {/* Left Column - Section Title */}
             <div className="lg:col-span-3 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
-              <h2 className="text-2xl md:text-3xl font-heading font-bold sticky top-32">Our Purpose</h2>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold sticky top-32">Our Purpose</h2>
             </div>
 
             {/* Right Column - Content */}
@@ -130,9 +130,17 @@ const Mission = () => {
                 </h3>
                 <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                   <p>
-                    At Synergaise, we see AI as the foundation for a new level of business performance. Used
-                    thoughtfully, it doesn't replace people, it amplifies their ability to think, decide and execute
-                    intelligently.
+                    At{" "}
+                    <span className="uppercase">
+                      SYNER
+                      <span className="tracking-tight">
+                        G<span className="italic">AI</span>
+                        <span className="inline-block ml-0.5">S</span>
+                      </span>
+                      <span className="tracking-wider">E</span>
+                    </span>
+                    , we see AI as the foundation for a new level of business performance. Used thoughtfully, it doesn't
+                    replace people, it amplifies their ability to think, decide and execute intelligently.
                   </p>
                   <p>
                     Our mission is to guide forward-thinking companies through this transformation — designing systems
