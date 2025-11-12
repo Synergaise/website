@@ -66,12 +66,13 @@ const Mission = () => {
       <section className="pt-32 pb-24 px-6 bg-background">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center space-y-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[2.5] tracking-tight text-foreground">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.15] tracking-tight text-foreground mb-2">
               Building intelligent systems
-              <br />
+            </h1>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.15] tracking-tight text-foreground">
               that think, adapt and last.
             </h1>
-            <p className="text-xl md:text-2xl text-foreground-secondary max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground-secondary max-w-3xl mx-auto leading-relaxed pt-4">
               Synergaise builds AI systems that redefine how people create value — reliable, interpretable and built to
               scale.
             </p>
@@ -116,7 +117,7 @@ const Mission = () => {
               {/* Main Statement */}
               <div className="space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.2]">
-                  We believe AI should empower not replace.
+                  We believe AI should empower, not replace.
                 </h3>
                 <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                   <p>
