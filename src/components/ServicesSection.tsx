@@ -87,6 +87,33 @@ const ServicesSection = () => {
             <br />
             is intuitive, scalable, and genuinely useful from day one.
           </p>
+
+          {/* By the Numbers Section */}
+          <div className="mt-16 pt-12 border-t border-border/50">
+            <div className="grid grid-cols-2 gap-12 max-w-2xl mx-auto">
+              
+              {/* Client Satisfaction */}
+              <div className="text-center space-y-2 group cursor-default">
+                <div className="text-4xl md:text-5xl font-heading font-black text-primary group-hover:scale-110 transition-transform duration-300">
+                  5/5
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground">
+                  Client Satisfaction
+                </div>
+              </div>
+
+              {/* Industries Served */}
+              <div className="text-center space-y-2 group cursor-default">
+                <div className="text-4xl md:text-5xl font-heading font-black text-primary group-hover:scale-110 transition-transform duration-300">
+                  6+
+                </div>
+                <div className="text-sm md:text-base text-muted-foreground">
+                  Industries Served
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </section>
