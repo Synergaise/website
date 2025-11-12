@@ -230,7 +230,17 @@ const Mission = () => {
               "The noise around AI is loud — full of hype, fear and false promises. But progress doesn't come from
               noise. It comes from systems that think, adapt and last."
             </blockquote>
-            <p className="text-lg md:text-xl text-muted-foreground">— Founders, Synergaise</p>
+            <p className="text-lg md:text-xl text-muted-foreground">
+              — Founders,{" "}
+              <span className="uppercase">
+                SYNER
+                <span className="tracking-tight">
+                  G<span className="italic">AI</span>
+                  <span className="inline-block ml-0.5">S</span>
+                </span>
+                <span className="tracking-wider">E</span>
+              </span>
+            </p>
           </div>
         </div>
       </section>
