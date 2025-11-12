@@ -53,7 +53,7 @@ const ServicesSection = () => {
 
         <div className="text-center mt-16 max-w-4xl mx-auto">
           <p className="text-base md:text-lg leading-relaxed text-foreground">
-            At <span className="uppercase">SYNERG<span className="italic">AI</span>SE</span>, we build custom-tailored solutions designed around your exact workflows and challenges.
+            At <span className="uppercase">SYNER<span className="tracking-tight">G<span className="italic">AI</span></span><span className="tracking-wide">SE</span></span>, we build custom-tailored solutions designed around your exact workflows and challenges.
             <br />
             Every system starts with a deep dive into understanding your business so
             <br />
