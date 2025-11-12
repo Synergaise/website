@@ -116,7 +116,7 @@ const Mission = () => {
               {/* Main Statement */}
               <div className="space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.2]">
-                  We believe AI should empower, not replace.
+                  We believe AI should empower not replace.
                 </h3>
                 <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                   <p>
