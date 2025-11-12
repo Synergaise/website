@@ -45,7 +45,7 @@ const Hero = () => {
       {/* Left Side: Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div 
-          className={`max-w-2xl space-y-8 transition-all duration-1000 transform ${
+          className={`max-w-2xl space-y-4 sm:space-y-8 transition-all duration-1000 transform ${
             showContent 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 translate-y-8'
@@ -56,7 +56,7 @@ const Hero = () => {
         >
           {/* Headline */}
           <h1 
-            className="font-heading font-black text-4xl sm:text-5xl lg:text-7xl xl:text-[72px] leading-[2.5] tracking-[-0.02em] text-foreground"
+            className="font-heading font-black text-4xl sm:text-5xl lg:text-7xl xl:text-[72px] leading-[1.15] sm:leading-[1.2] lg:leading-[1.25] tracking-[-0.02em] text-foreground"
             style={{
               transition: 'transform 0.3s ease-out',
               transform: 'translateZ(0)',
@@ -77,7 +77,7 @@ const Hero = () => {
 
           {/* CTA Button */}
           <div 
-            className="pt-4"
+            className="pt-2 sm:pt-4"
             style={{
               transitionDelay: '200ms'
             }}
