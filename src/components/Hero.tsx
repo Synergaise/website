@@ -56,7 +56,7 @@ const Hero = () => {
         >
           {/* Headline */}
           <h1 
-            className="font-heading font-black text-4xl sm:text-5xl lg:text-7xl xl:text-[72px] leading-[1.05] tracking-[-0.02em] text-foreground"
+            className="font-heading font-black text-4xl sm:text-5xl lg:text-7xl xl:text-[72px] leading-[2.5] tracking-[-0.02em] text-foreground"
             style={{
               transition: 'transform 0.3s ease-out',
               transform: 'translateZ(0)',
