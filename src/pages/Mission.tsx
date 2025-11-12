@@ -75,8 +75,15 @@ const Mission = () => {
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-foreground-secondary max-w-3xl mx-auto leading-relaxed pt-8">
-              Synergaise builds AI systems that redefine how people create value — reliable, interpretable and built to
-              scale.
+              <span className="uppercase">
+                SYNER
+                <span className="tracking-tight">
+                  G<span className="italic">AI</span>
+                  <span className="inline-block ml-0.5">S</span>
+                </span>
+                <span className="tracking-wider">E</span>
+              </span>{" "}
+              builds AI systems that redefine how people create value — reliable, interpretable and built to scale.
             </p>
             <div className="pt-4">
               <Link to="/contact">
@@ -111,7 +118,7 @@ const Mission = () => {
           <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
             {/* Left Column - Section Title */}
             <div className="lg:col-span-3 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold sticky top-32">Our Purpose</h2>
+              <h2 className="text-2xl md:text-3xl font-heading font-bold sticky top-32">Our Purpose</h2>
             </div>
 
             {/* Right Column - Content */}
@@ -119,7 +126,7 @@ const Mission = () => {
               {/* Main Statement */}
               <div className="space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
                 <h3 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-[1.2]">
-                  We believe AI should empower not replace.
+                  We believe AI should empower, not replace.
                 </h3>
                 <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
                   <p>
@@ -212,8 +219,8 @@ const Mission = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-[1.3] text-foreground/90">
-              "The noise around AI is loud — full of hype, fear and false promises but progress doesn't come from noise.
-              It comes from systems that think, adapt and last."
+              "The noise around AI is loud — full of hype, fear and false promises. But progress doesn't come from
+              noise. It comes from systems that think, adapt and last."
             </blockquote>
             <p className="text-lg md:text-xl text-muted-foreground">— Founders, Synergaise</p>
           </div>
