@@ -212,8 +212,8 @@ const Mission = () => {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-8 fade-in-scroll opacity-0 translate-y-8 transition-all duration-700">
             <blockquote className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold leading-[1.3] text-foreground/90">
-              "The noise around AI is loud — full of hype, fear and false promises. But progress doesn't come from
-              noise. It comes from systems that think, adapt and last."
+              "The noise around AI is loud — full of hype, fear and false promises but progress doesn't come from noise.
+              It comes from systems that think, adapt and last."
             </blockquote>
             <p className="text-lg md:text-xl text-muted-foreground">— Founders, Synergaise</p>
           </div>
