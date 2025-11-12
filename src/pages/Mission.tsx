@@ -66,7 +66,7 @@ const Mission = () => {
       <section className="pt-32 pb-24 px-6 bg-background">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center space-y-8 animate-fade-in-up">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.35] tracking-tight text-foreground">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-black leading-[1.55] tracking-tight text-foreground">
               Building intelligent systems
               <br />
               that think, adapt and last.
