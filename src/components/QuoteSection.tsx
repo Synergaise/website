@@ -13,7 +13,7 @@ const QuoteSection = () => {
           <div className="flex items-center justify-center gap-3 pt-2">
             <p className="text-lg md:text-xl text-muted-foreground">- Founders,</p>
             <img src={logoCircle} alt="SYNERGAISE" className="h-6 w-6" />
-            <p className="text-lg md:text-xl text-foreground uppercase">SYNER<span className="tracking-tight">G<span className="italic">AI</span></span><span className="tracking-wide">SE</span></p>
+            <p className="text-lg md:text-xl text-foreground uppercase">SYNER<span className="tracking-tight">G<span className="italic">AI</span></span><span className="tracking-wider">SE</span></p>
           </div>
         </div>
       </div>
