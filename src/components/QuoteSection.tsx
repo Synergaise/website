@@ -4,11 +4,17 @@ const QuoteSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-graphite/20 to-transparent" />
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <blockquote className="text-2xl md:text-3xl lg:text-[42px] font-heading font-bold leading-[1.2] tracking-tight">
-            "We hear you, the noise around AI is loud but real progress comes quietly.
-            <br />
-            <br />
-            We use systems that think, adapt and last, redefining how we create value."
+          <blockquote className="text-2xl md:text-3xl lg:text-[42px] font-heading font-bold leading-[1.4] tracking-tight space-y-4">
+            <p className="leading-[1.4]">
+              "We hear you, the noise around AI is loud but
+              <br />
+              real progress comes quietly.
+            </p>
+            <p className="leading-[1.4]">
+              We use systems that think, adapt and last,
+              <br />
+              redefining how we create value."
+            </p>
           </blockquote>
           <div className="flex items-center justify-center gap-3 pt-2">
             <p className="text-lg md:text-xl text-muted-foreground">- Founders,</p>
