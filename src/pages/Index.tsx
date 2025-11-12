@@ -13,12 +13,12 @@ const Index = () => {
       <Hero />
       <QuoteSection />
       <ServicesSection />
+      <ProjectsSection />
       <div className="w-full my-8 sm:my-12 px-4 sm:px-6">
         <div className="container mx-auto">
           <PlatformFlywheel />
         </div>
       </div>
-      <ProjectsSection />
       <Footer />
     </div>
   );
