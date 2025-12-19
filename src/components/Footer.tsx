@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,13 +17,13 @@ const Footer = () => {
         <div className="text-left text-sm text-muted-foreground space-y-2">
           <p>© Synergaise Ltd 2025</p>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-foreground transition-colors">
+            <Link to="/privacy" className="hover:text-foreground transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             <span>·</span>
-            <a href="#" className="hover:text-foreground transition-colors">
+            <Link to="/terms" className="hover:text-foreground transition-colors">
               Terms
-            </a>
+            </Link>
           </div>
         </div>
       </div>
