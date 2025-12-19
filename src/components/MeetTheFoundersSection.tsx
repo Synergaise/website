@@ -1,5 +1,5 @@
 import judePhoto from '@/assets/judechatgptimage.png';
-import bertiePhoto from '@/assets/bertie-photo-new.png';
+import bertiePhoto from '@/assets/Bertie Headshot.jpeg';
 import { motion } from 'framer-motion';
 export default function MeetTheFoundersSection() {
   return <section id='founders' className='bg-muted/30 py-12 sm:py-16 px-4 sm:px-6 flex flex-col items-center text-center rounded-[24px] max-w-7xl mx-auto my-8 sm:my-12'>
@@ -27,7 +27,9 @@ export default function MeetTheFoundersSection() {
         duration: 0.6,
         delay: 0.1
       }}>
-          <img src={judePhoto} alt='Jude Hill, Co-Founder of Synergaise' className='w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 object-cover rounded-[16px] shadow-md mb-6' />
+          <div className='w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-[16px] shadow-md mb-6 overflow-hidden'>
+            <img src={judePhoto} alt='Jude Hill, Co-Founder of Synergaise' className='w-full h-full object-cover object-[center_20%]' />
+          </div>
           <h3 className='text-xl font-semibold text-foreground'>Jude Hill</h3>
           <p className='text-sm text-muted-foreground'>Co-Founder, Synergaise</p>
         </motion.div>
@@ -44,7 +46,7 @@ export default function MeetTheFoundersSection() {
         delay: 0.2
       }}>
           <div className='w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-[16px] shadow-md mb-6 overflow-hidden'>
-            <img src={bertiePhoto} alt='Bertie Ross, Co-Founder of Synergaise' className='w-full h-full object-cover object-[center_30%]' />
+            <img src={bertiePhoto} alt='Bertie Ross, Co-Founder of Synergaise' className='w-full h-full object-cover object-[center_20%]' />
           </div>
           <h3 className='text-xl font-semibold text-foreground'>Bertie Ross</h3>
           <p className='text-sm text-muted-foreground'>Co-Founder, Synergaise</p>
