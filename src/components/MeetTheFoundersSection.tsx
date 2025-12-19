@@ -1,4 +1,4 @@
-import judePhoto from '@/assets/IMG_2221.jpg';
+import judePhoto from '@/assets/judechatgptimage.png';
 import bertiePhoto from '@/assets/bertie-photo-new.png';
 import { motion } from 'framer-motion';
 export default function MeetTheFoundersSection() {
