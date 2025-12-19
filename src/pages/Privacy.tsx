@@ -167,8 +167,8 @@ const Privacy = () => {
                 </ul>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   To exercise these rights, contact us at{" "}
-                  <a href="mailto:hello@synergaise.com" className="text-primary hover:underline">
-                    hello@synergaise.com
+                  <a href="mailto:synergaise@gmail.com" className="text-primary hover:underline">
+                    synergaise@gmail.com
                   </a>
                 </p>
               </section>
@@ -207,8 +207,8 @@ const Privacy = () => {
                   <p className="font-semibold text-foreground">Synergaise Ltd</p>
                   <p>
                     Email:{" "}
-                    <a href="mailto:hello@synergaise.com" className="text-primary hover:underline">
-                      hello@synergaise.com
+                    <a href="mailto:synergaise@gmail.com" className="text-primary hover:underline">
+                      synergaise@gmail.com
                     </a>
                   </p>
                   <p>
